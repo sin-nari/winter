@@ -143,6 +143,38 @@ td.num{text-align:center;font-variant-numeric:tabular-nums}
 tr:last-child td{border-bottom:0}
 .empty{padding:30px;text-align:center;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:var(--r)}
 
+/* glance */
+.sum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+@media (max-width:760px){.sum{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.sbox .k{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.sbox b{font-size:18px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.35}
+.sbox .s{font-size:12.5px;color:var(--dim)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted);margin-bottom:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.lg{display:inline-block;width:18px;height:10px;border-radius:3px}
+.lg.pre,.seg.pre{background:var(--s2)}
+.lg.vac,.seg.vac{background:var(--s3)}
+.lg.mix,.seg.mix{background:repeating-linear-gradient(135deg,var(--s2) 0 6px,var(--s3) 6px 12px);opacity:.75}
+.lg.hol{background:var(--line)}
+table.glance{min-width:1060px}
+table.glance td{vertical-align:middle}
+table.glance .sch{white-space:nowrap;color:var(--muted)}
+table.glance .tch{font-size:13px;color:var(--muted);white-space:nowrap}
+table.glance td.num b{display:block;font-size:15px}
+table.glance .split{display:block;font-size:11.5px;color:var(--dim);white-space:nowrap}
+table.glance tr.pend td{background:var(--warn-lt)}
+th.gcol,td.gcol{width:300px;min-width:300px}
+.axis{position:relative;height:18px}
+.axis span{position:absolute;transform:translateX(-50%);font-size:11.5px;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+.axis span:first-child{transform:none}
+.axis span:last-child{transform:translateX(-100%)}
+.gbar{position:relative;height:16px;border-radius:4px;background:var(--paper);border:1px solid var(--line)}
+.gbar i{position:absolute;top:0;bottom:0}
+.gbar .seg{border-radius:3px;top:1px;bottom:1px}
+.gbar .hol{background:var(--line)}
+.gnote{font-size:13px;color:var(--muted);margin-top:10px}
+
 /* apply timeline */
 .tl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:28px}
 @media (max-width:760px){.tl{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -209,7 +241,8 @@ footer p+p{margin-top:6px}
   <div class="wrap nav-in">
     <div class="brand">부천형 공동교육과정 <b>계절학기(겨울)</b></div>
     <div class="nav-links">
-      <a href="#courses">개설 강좌</a>
+      <a href="#glance">한눈에 보기</a>
+      <a href="#courses">강좌 상세</a>
       <a href="#apply">수강신청</a>
       <a href="#credit">이수 기준</a>
       <a href="#record">성적·학생부</a>
@@ -247,20 +280,26 @@ footer p+p{margin-top:6px}
 </header>
 
 <main>
+<section id="glance">
+  <div class="wrap">
+    <div class="shead"><h2>한눈에 보기</h2><span class="tag t-s2">14강좌</span></div>
+    <p class="sdesc">개설 강좌 전체와 운영 기간입니다. 막대는 12. 21.부터 2. 3.까지의 날짜를 같은 눈금으로 그렸습니다.</p>
+    <div class="sum" id="sum"></div>
+    <div class="legend" aria-hidden="true"><span><i class="lg pre"></i>학기말 사전 수업</span><span><i class="lg vac"></i>방학 집중 수업</span><span><i class="lg mix"></i>기간만 확인(배분 미정)</span><span><i class="lg hol"></i>12. 25.·1. 1.</span></div>
+    <div class="tbl-wrap"><table class="glance"><thead><tr><th>거점교</th><th>과목</th><th>형태</th><th class="num">학점</th><th>평가</th><th class="num">총 차시</th><th>강사</th><th class="gcol"><div class="axis" id="axis"></div></th></tr></thead><tbody id="gbody"></tbody></table></div>
+    <p class="gnote">표가 화면보다 넓으면 옆으로 밀어서 보세요. <span class="badge b-pend">신청서 미제출</span> 강좌는 거점교 조사 시트 기준입니다.</p>
+  </div>
+</section>
+
 <section id="courses">
   <div class="wrap">
-    <div class="shead"><h2>개설 강좌</h2><span class="tag t-s2">14강좌</span></div>
+    <div class="shead"><h2>강좌 상세</h2><span class="tag t-s2">14강좌</span></div>
     <p class="sdesc">2학점은 32차시, 3학점은 48차시입니다. 강좌마다 학기말과 방학의 시간 배분이 다르니, 내 학교 일정과 겹치지 않는지 날짜를 꼭 확인하세요.</p>
     <div class="notice" role="note"><span aria-hidden="true">●</span><span><b>개설 과목(안)입니다.</b> <b>신청서 미제출</b> 표시가 있는 3강좌는 거점교 조사 시트 기준이며, 거점교 신청서를 받은 뒤 확정합니다. 11. 11. 협의회 결과에 따라 강좌가 바뀔 수 있으며, 수강신청 결과에 따라 폐강될 수 있습니다. 확정 강좌는 11. 13.(금) 학교로 안내합니다.</span></div>
     <div class="toolbar">
       <div class="chips" role="group" aria-label="강좌 거르기" id="chips"></div>
-      <div class="view" role="group" aria-label="보기 방식">
-        <button type="button" id="v-card" aria-pressed="true">카드</button>
-        <button type="button" id="v-table" aria-pressed="false">표</button>
-      </div>
     </div>
     <div id="cards" class="grid"></div>
-    <div id="table" class="tbl-wrap" hidden></div>
     <div id="empty" class="empty" hidden>조건에 맞는 강좌가 없습니다. 다른 조건을 골라 보세요.</div>
   </div>
 </section>
@@ -370,24 +409,23 @@ footer p+p{margin-top:6px}
 
 <script>
 const COURSES=[
- {s:"부천여자고",n:"보건",m:"온라인",c:2,sub:"교양",t:"홍현선(부천여자고)",pre:["12. 21. ~ 1. 7.","평일 17:20~19:10 (2시간 7회, 3시간 3회)",23],vac:["1. 11. ~ 1. 13.","월·화·수 09:00~12:00",9]},
- {s:"부천여자고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"강호국(한백고)",pre:["12. 21. ~ 1. 7.","평일 17:30~19:20",24],vac:["1. 12. ~ 1. 13.","화·수 09:00~12:50",8]},
- {s:"시온고",n:"보건",m:"온라인",c:2,sub:"교양",t:"최소정(고양국제고)",pre:["12. 21. ~ 1. 11.","평일 저녁 2시간",24,true],vac:["1. 12. ~ 1. 13.","월·화 09:00~12:50",8]},
- {s:"정명고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"오상아(부명고)",pre:["12. 21. ~ 1. 11.","평일 17:30~19:20 12회, 09:00~12:50 2회",32],vac:null},
- {s:"소사고",n:"고급 화학",m:"온라인",c:3,sub:"과학",t:"박재희(소사고)",pre:["12. 21. ~ 1. 11.","평일 18:00~19:50",28],vac:["1. 12. ~ 1. 19.","09:00~11:50 (1. 12.~15.), 09:00~12:50 (1. 18.~19.)",20]},
- {s:"심원고",n:"국제 정치",m:"온라인",c:3,sub:"국제",t:"이창성(심원고)",pre:["12. 21. ~ 1. 7.","월~목 18:00~19:50",24],vac:["1. 18. ~ 1. 27.","평일 09:00~12:50",24]},
- {s:"역곡고",n:"고급 생명과학",m:"온라인",c:3,sub:"과학",t:"정고은(산본고)",pre:["12. 22. ~ 1. 13.","평일 17:30~19:20 / 18:00~20:50",28],vac:["1. 14. ~ 1. 19.","평일 09:00~13:50",20]},
- {s:"부천고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"김지연(부천고)",pend:1,pre:["12. 21. ~ 1. 7.","평일 17:30~20:10 (3시간 10회), 17:30~19:20 (2시간 1회)",32],vac:null},
- {s:"부천북고",n:"인간과 심리",m:"온라인",c:2,sub:"교양",t:"박해린(부천북고)",pend:1,pre:["12. 21. ~","월 18:00~19:50, 수 17:00~18:50 (2시간 6회)",12],vac:["~ 1. 20.","평일 09:00~11:50 (3시간 6회, 2시간 1회)",20]},
- {s:"부명고",n:"물리학 실험",m:"오프라인",c:3,sub:"과학",t:"김희정(외부 강사)",pre:null,vac:["1. 19. ~ 2. 3.","평일 09:00~12:50",48]},
- {s:"부천고",n:"고급 대수",m:"오프라인",c:3,sub:"수학",t:"이진선(부천고)",pre:["12. 21. ~ 1. 4.","월·수 17:50~19:30 / 17:50~20:20",12],vac:["1. 12. ~ 1. 22.","평일 09:00~12:40",36]},
- {s:"상원고",n:"인공지능 융합 프로젝트",m:"오프라인",c:3,sub:"정보",t:"손아영(심원고)",pre:["12. 21. ~ 1. 6.","월 17:30~20:20, 수 17:00~19:50",18],vac:["1. 11. ~ 1. 15.","평일 09:00~11:50, 13:00~15:50",30]},
- {s:"부천고",n:"인간과 철학",m:"오프라인",c:2,sub:"교양",t:"차재원(상록중)",pend:1,tot:32,pre:["12. 21. ~","월·수·금 17:30~20:10",null],vac:["~ 1. 20.","월~수 09:00~11:40",null]},
- {s:"중원고",n:"생명과학 실험",m:"오프라인",c:3,sub:"과학",t:"이호재(외부 강사)",pre:["1. 8. ~ 1. 11.","월·금 13:00~16:50",8],vac:["1. 12. ~ 1. 22.","평일 13:00~16:50 (5일), 13:00~17:50 (4일)",40]}
+ {R:[[0,17,"pre"],[21,23,"vac"]],s:"부천여자고",n:"보건",m:"온라인",c:2,sub:"교양",t:"홍현선(부천여자고)",pre:["12. 21. ~ 1. 7.","평일 17:20~19:10 (2시간 7회, 3시간 3회)",23],vac:["1. 11. ~ 1. 13.","월·화·수 09:00~12:00",9]},
+ {R:[[0,17,"pre"],[22,23,"vac"]],s:"부천여자고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"강호국(한백고)",pre:["12. 21. ~ 1. 7.","평일 17:30~19:20",24],vac:["1. 12. ~ 1. 13.","화·수 09:00~12:50",8]},
+ {R:[[0,21,"pre"],[22,23,"vac"]],s:"시온고",n:"보건",m:"온라인",c:2,sub:"교양",t:"최소정(고양국제고)",pre:["12. 21. ~ 1. 11.","평일 저녁 2시간",24,true],vac:["1. 12. ~ 1. 13.","월·화 09:00~12:50",8]},
+ {R:[[0,21,"pre"]],s:"정명고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"오상아(부명고)",pre:["12. 21. ~ 1. 11.","평일 17:30~19:20 12회, 09:00~12:50 2회",32],vac:null},
+ {R:[[0,21,"pre"],[22,29,"vac"]],s:"소사고",n:"고급 화학",m:"온라인",c:3,sub:"과학",t:"박재희(소사고)",pre:["12. 21. ~ 1. 11.","평일 18:00~19:50",28],vac:["1. 12. ~ 1. 19.","09:00~11:50 (1. 12.~15.), 09:00~12:50 (1. 18.~19.)",20]},
+ {R:[[0,17,"pre"],[28,37,"vac"]],s:"심원고",n:"국제 정치",m:"온라인",c:3,sub:"국제",t:"이창성(심원고)",pre:["12. 21. ~ 1. 7.","월~목 18:00~19:50",24],vac:["1. 18. ~ 1. 27.","평일 09:00~12:50",24]},
+ {R:[[1,23,"pre"],[24,29,"vac"]],s:"역곡고",n:"고급 생명과학",m:"온라인",c:3,sub:"과학",t:"정고은(산본고)",pre:["12. 22. ~ 1. 13.","평일 17:30~19:20 / 18:00~20:50",28],vac:["1. 14. ~ 1. 19.","평일 09:00~13:50",20]},
+ {R:[[0,17,"pre"]],s:"부천고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"김지연(부천고)",pend:1,pre:["12. 21. ~ 1. 7.","평일 17:30~20:10 (3시간 10회), 17:30~19:20 (2시간 1회)",32],vac:null},
+ {R:[[0,30,"mix"]],s:"부천북고",n:"인간과 심리",m:"온라인",c:2,sub:"교양",t:"박해린(부천북고)",pend:1,pre:["12. 21. ~","월 18:00~19:50, 수 17:00~18:50 (2시간 6회)",12],vac:["~ 1. 20.","평일 09:00~11:50 (3시간 6회, 2시간 1회)",20]},
+ {R:[[29,44,"vac"]],s:"부명고",n:"물리학 실험",m:"오프라인",c:3,sub:"과학",t:"김희정(외부 강사)",pre:null,vac:["1. 19. ~ 2. 3.","평일 09:00~12:50",48]},
+ {R:[[0,14,"pre"],[22,32,"vac"]],s:"부천고",n:"고급 대수",m:"오프라인",c:3,sub:"수학",t:"이진선(부천고)",pre:["12. 21. ~ 1. 4.","월·수 17:50~19:30 / 17:50~20:20",12],vac:["1. 12. ~ 1. 22.","평일 09:00~12:40",36]},
+ {R:[[0,16,"pre"],[21,25,"vac"]],s:"상원고",n:"인공지능 융합 프로젝트",m:"오프라인",c:3,sub:"정보",t:"손아영(심원고)",pre:["12. 21. ~ 1. 6.","월 17:30~20:20, 수 17:00~19:50",18],vac:["1. 11. ~ 1. 15.","평일 09:00~11:50, 13:00~15:50",30]},
+ {R:[[0,30,"mix"]],s:"부천고",n:"인간과 철학",m:"오프라인",c:2,sub:"교양",t:"차재원(상록중)",pend:1,tot:32,pre:["12. 21. ~","월·수·금 17:30~20:10",null],vac:["~ 1. 20.","월~수 09:00~11:40",null]},
+ {R:[[18,21,"pre"],[22,32,"vac"]],s:"중원고",n:"생명과학 실험",m:"오프라인",c:3,sub:"과학",t:"이호재(외부 강사)",pre:["1. 8. ~ 1. 11.","월·금 13:00~16:50",8],vac:["1. 12. ~ 1. 22.","평일 13:00~16:50 (5일), 13:00~17:50 (4일)",40]}
 ];
 const FILTERS=[["all","전체",()=>true],["on","온라인",c=>c.m==="온라인"],["off","오프라인",c=>c.m==="오프라인"],["c2","2학점",c=>c.c===2],["c3","3학점",c=>c.c===3],["sci","과학·수학·정보",c=>["과학","수학","정보"].includes(c.sub)],["lib","교양·국제",c=>["교양","국제"].includes(c.sub)],["pend","신청서 미제출",c=>!!c.pend]];
-let cur="all", view="card";
-try{const v=localStorage.getItem("wv");if(v==="table")view="table";}catch(e){}
+let cur="all";
 const esc=s=>String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
 const totOf=c=>c.tot||((c.pre&&c.pre[2]||0)+(c.vac&&c.vac[2]||0));
 const evalOf=c=>c.sub==="교양"?"이수(P)":"성취도";
@@ -406,17 +444,27 @@ function render(){
       <div class="sched">${row("학기말 사전","pre",c.pre)}${row("방학 집중","vac",c.vac)}</div>
       <div class="c-foot"><span>강사 <b>${esc(c.t)}</b></span><span>총 <b>${tot}차시</b></span></div>
     </article>`}).join("");
-  document.getElementById("table").innerHTML=`<table><thead><tr><th>거점교</th><th>과목</th><th>형태</th><th>학점</th><th>학기말 사전 수업</th><th>방학 집중 수업</th><th>강사</th><th>총 차시</th></tr></thead><tbody>${list.map(c=>`<tr><td>${esc(c.s)}</td><td><b>${esc(c.n)}</b>${c.pend?' <span class="badge b-pend">신청서 미제출</span>':''}</td><td>${c.m}</td><td class="num">${c.c}</td><td>${c.pre?esc(c.pre[0])+(c.pre[2]!=null?" ("+c.pre[2]+")":""):"–"}</td><td>${c.vac?esc(c.vac[0])+(c.vac[2]!=null?" ("+c.vac[2]+")":""):"–"}</td><td>${esc(c.t)}</td><td class="num">${totOf(c)}</td></tr>`).join("")}</tbody></table>`;
   const none=!list.length;
   document.getElementById("empty").hidden=!none;
-  document.getElementById("cards").hidden=none||view!=="card";
-  document.getElementById("table").hidden=none||view!=="table";
-  document.getElementById("v-card").setAttribute("aria-pressed",view==="card");
-  document.getElementById("v-table").setAttribute("aria-pressed",view==="table");
+  document.getElementById("cards").hidden=none;
 }
 document.getElementById("chips").addEventListener("click",e=>{const b=e.target.closest("[data-f]");if(!b)return;cur=b.dataset.f;render();});
-["card","table"].forEach(v=>document.getElementById("v-"+v).addEventListener("click",()=>{view=v;try{localStorage.setItem("wv",v)}catch(e){}render();}));
 render();
+
+/* glance table */
+(function(){
+  const SPAN=45, pct=d=>(d/SPAN*100).toFixed(2)+"%";
+  const ticks=[[0,"12. 21."],[11,"1. 1."],[21,"1. 11."],[31,"1. 21."],[44,"2. 3."]];
+  const hol=[4,11];
+  document.getElementById("axis").innerHTML=ticks.map(([d,l])=>`<span style="left:${pct(d+.5)}">${l}</span>`).join("");
+  const bar=c=>`<div class="gbar" role="img" aria-label="${esc(c.n)} 운영 기간">${hol.map(d=>`<i class="hol" style="left:${pct(d)};width:${pct(1)}"></i>`).join("")}${c.R.map(([a,b,k])=>`<i class="seg ${k}" style="left:${pct(a)};width:${pct(b-a+1)}"></i>`).join("")}</div>`;
+  const per=c=>{const p=c.pre&&c.pre[2]!=null?c.pre[2]:null, v=c.vac&&c.vac[2]!=null?c.vac[2]:null; return (p==null&&v==null)?"":`<span class="split">${p!=null?"사전 "+p:""}${p!=null&&v!=null?" · ":""}${v!=null?"방학 "+v:""}</span>`;};
+  const order=[...COURSES].sort((a,b)=>(a.m===b.m?0:a.m==="온라인"?-1:1)||a.c-b.c||a.s.localeCompare(b.s,"ko"));
+  document.getElementById("gbody").innerHTML=order.map(c=>`<tr${c.pend?' class="pend"':''}><td class="sch">${esc(c.s)}</td><td><b>${esc(c.n)}</b>${c.pend?' <span class="badge b-pend">신청서 미제출</span>':''}</td><td><span class="badge ${c.m==="온라인"?"b-on":"b-off"}">${c.m}</span></td><td class="num">${c.c}</td><td>${evalOf(c)}</td><td class="num"><b>${totOf(c)}</b>${per(c)}</td><td class="tch">${esc(c.t)}</td><td class="gcol">${bar(c)}</td></tr>`).join("");
+  const on=COURSES.filter(c=>c.m==="온라인").length, off=COURSES.length-on, schools=new Set(COURSES.map(c=>c.s)).size, pend=COURSES.filter(c=>c.pend).length;
+  const c2=COURSES.filter(c=>c.c===2).length, c3=COURSES.length-c2;
+  document.getElementById("sum").innerHTML=[["전체",COURSES.length+"강좌","거점교 "+schools+"교"],["형태","온라인 "+on+" · 오프라인 "+off,"정원 20명 · 15명 내외"],["학점","2학점 "+c2+" · 3학점 "+c3,"32차시 · 48차시"],["신청서","제출 "+(COURSES.length-pend)+" · 미제출 "+pend,"미제출은 시트 기준"]].map(([k,v,s])=>`<div class="sbox"><span class="k">${k}</span><b>${v}</b><span class="s">${s}</span></div>`).join("");
+})();
 
 /* attendance calculator */
 let total=48;
