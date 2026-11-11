@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="2026 부천형 공동교육과정 계절학기(겨울) 개설 강좌, 수강신청 일정, 이수 기준 안내">
+<meta name="theme-color" content="#131C31">
+<title>부천 계절학기(겨울) 공동교육과정</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* Layout: navy hero with a 3-step season path, then paper sections in one 980px column (배움:성장 사이트 체계를 따름) */
+:root{
+  --ink:#141A24; --navy:#131C31; --navy-2:#202C46; --navy-3:#2A3852;
+  --paper:#F7F6F2; --card:#FFFFFF; --line:#E2DFD6; --muted:#5F6672; --dim:#8D939D;
+  --on-navy:#FFFFFF; --on-navy-2:rgba(255,255,255,.72); --on-navy-3:rgba(255,255,255,.5); --navy-line:rgba(255,255,255,.18);
+  --s1:#7FB13A; --s1-lt:#E6F0DA; --s1-dk:#4C7420; --s1-on:#8FC44A;
+  --s2:#4A93D8; --s2-lt:#DFEAF7; --s2-dk:#255E9E; --s2-on:#5FA8E8;
+  --s3:#DE8843; --s3-lt:#F8E5D5; --s3-dk:#9E5620; --s3-on:#EE9A55;
+  --warn-lt:#FFF4E0; --warn-dk:#8A5A00;
+  --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --serif:"Gowun Batang","Noto Serif KR",Georgia,serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:#E8EAEE; --navy:#0C1222; --navy-2:#18223A; --navy-3:#22304C;
+  --paper:#11172A; --card:#1A2238; --line:#2C3650; --muted:#A3AAB7; --dim:#7D8594;
+  --s1-lt:#24331A; --s1-dk:#A9D573; --s2-lt:#1A2C45; --s2-dk:#8EC0F0; --s3-lt:#3A2818; --s3-dk:#F3B27C;
+  --warn-lt:#3A2F14; --warn-dk:#F0C870; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:#E8EAEE; --navy:#0C1222; --navy-2:#18223A; --navy-3:#22304C;
+  --paper:#11172A; --card:#1A2238; --line:#2C3650; --muted:#A3AAB7; --dim:#7D8594;
+  --s1-lt:#24331A; --s1-dk:#A9D573; --s2-lt:#1A2C45; --s2-dk:#8EC0F0; --s3-lt:#3A2818; --s3-dk:#F3B27C;
+  --warn-lt:#3A2F14; --warn-dk:#F0C870; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:var(--navy)}
+.wrap{width:100%;max-width:1012px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--s2-on);outline-offset:2px;border-radius:4px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--navy);border-bottom:1px solid var(--navy-line)}
+.nav-in{display:flex;align-items:center;gap:20px;height:56px}
+.brand{font-size:14px;font-weight:700;color:var(--on-navy);white-space:nowrap}
+.brand b{color:var(--s2-on)}
+.nav-links{display:flex;gap:18px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{color:var(--on-navy-2);text-decoration:none;font-size:14px;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--on-navy);border-bottom-color:var(--s2-on)}
+@media (max-width:560px){.brand{display:none}.nav-links{margin-left:0}}
+
+/* hero */
+header{background:var(--navy);color:var(--on-navy);padding-block:52px 56px}
+.wordmark{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--on-navy-2);margin-bottom:22px}
+.wordmark .wm-line{display:block;height:1px;flex:0 0 56px;background:var(--navy-line)}
+h1{font-family:var(--serif);font-size:clamp(30px,5.4vw,50px);line-height:1.28;font-weight:700;letter-spacing:-.01em}
+h1 .b{color:var(--s2-on)}
+.tagline{margin-top:16px;font-size:clamp(15px,2.2vw,18px);color:var(--on-navy-2);max-width:40em}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pill{border:1px solid var(--navy-line);border-radius:999px;padding:6px 15px;font-size:14px;color:var(--on-navy)}
+.pill b{color:var(--s2-on);font-weight:700}
+
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;position:relative}
+.path::before{content:"";position:absolute;left:8%;right:8%;top:23px;height:2px;background:linear-gradient(90deg,var(--s2-on),var(--s3-on),var(--s1-on));opacity:.55}
+.step{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.dot{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:15px;color:var(--navy);background:var(--c)}
+.scard{width:100%;border:1px solid var(--navy-line);border-radius:var(--r);padding:20px 16px;background:var(--navy-2);display:flex;flex-direction:column;gap:6px;flex:1}
+.scard .nm{font-size:19px;font-weight:700;color:var(--c)}
+.scard .when{font-size:15px;font-weight:700;color:var(--on-navy)}
+.scard .how{font-size:14px;color:var(--on-navy-2);line-height:1.6}
+@media (max-width:700px){
+  .path{grid-template-columns:1fr;gap:12px}
+  .path::before{left:23px;right:auto;top:24px;bottom:24px;width:2px;height:auto;background:linear-gradient(180deg,var(--s2-on),var(--s3-on),var(--s1-on))}
+  .step{flex-direction:row;align-items:stretch;text-align:left;gap:14px}
+  .dot{flex:0 0 48px}
+}
+
+/* sections */
+section{padding-block:56px}
+section+section{border-top:1px solid var(--line)}
+.shead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+h2{font-size:clamp(23px,3.4vw,30px);font-weight:700;letter-spacing:-.02em}
+.sdesc{color:var(--muted);font-size:15.5px;margin-bottom:26px;max-width:46em}
+.tag{font-size:12px;font-weight:700;letter-spacing:.08em;padding:4px 10px;border-radius:5px}
+.t-s1{background:var(--s1-lt);color:var(--s1-dk)} .t-s2{background:var(--s2-lt);color:var(--s2-dk)} .t-s3{background:var(--s3-lt);color:var(--s3-dk)}
+.notice{display:flex;gap:10px;align-items:flex-start;background:var(--warn-lt);color:var(--warn-dk);border-radius:10px;padding:12px 16px;font-size:14.5px;line-height:1.6;margin-bottom:24px}
+.notice b{font-weight:700}
+
+/* filters */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin-bottom:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:14px;font-weight:500;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 15px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{background:var(--s2);border-color:var(--s2)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{background:var(--s2);border-color:var(--s2)}}
+.chip .n{font-variant-numeric:tabular-nums;opacity:.7;margin-left:4px}
+.view{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.view button{font:inherit;font-size:14px;border:0;background:var(--card);color:var(--muted);padding:7px 14px;cursor:pointer}
+.view button[aria-pressed="true"]{background:var(--s2-lt);color:var(--s2-dk);font-weight:700}
+
+/* course cards */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+.course{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.c-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.c-school{font-size:13.5px;color:var(--muted);font-weight:500}
+.c-name{font-size:21px;font-weight:700;letter-spacing:-.01em;line-height:1.35;margin-top:2px}
+.c-credit{flex:0 0 auto;text-align:right;line-height:1.1}
+.c-credit b{display:block;font-size:26px;font-weight:900;font-variant-numeric:tabular-nums}
+.c-credit span{font-size:12.5px;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:5px;background:var(--paper);color:var(--muted);border:1px solid var(--line)}
+.b-on{background:var(--s2-lt);color:var(--s2-dk);border-color:transparent}
+.b-off{background:var(--s3-lt);color:var(--s3-dk);border-color:transparent}
+.b-p{background:var(--s1-lt);color:var(--s1-dk);border-color:transparent}
+.b-pend{background:var(--warn-lt);color:var(--warn-dk);border-color:var(--warn-dk);border-style:dashed}
+.course.pend{border-style:dashed;border-color:var(--warn-dk)}
+.sched{display:flex;flex-direction:column;gap:8px}
+.row{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.55;padding-top:8px;border-top:1px dashed var(--line)}
+.row .k{font-weight:700;font-size:13px;padding-top:1px}
+.row .k.pre{color:var(--s2-dk)} .row .k.vac{color:var(--s3-dk)}
+.row .d{font-weight:700;font-variant-numeric:tabular-nums}
+.row .t{color:var(--muted)}
+.row .none{color:var(--dim)}
+.c-foot{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:var(--muted);margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.c-foot b{color:var(--ink);font-weight:700}
+.check{font-size:12.5px;color:var(--warn-dk);background:var(--warn-lt);border-radius:5px;padding:1px 7px;margin-left:4px;white-space:nowrap}
+
+/* table view */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:860px;font-size:14px}
+th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--muted);font-weight:700;background:var(--paper);white-space:nowrap}
+td.num{text-align:center;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.empty{padding:30px;text-align:center;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:var(--r)}
+
+/* apply timeline */
+.tl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:28px}
+@media (max-width:760px){.tl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tl-item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tl-item.hot{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.tl-item .lbl{font-size:13px;font-weight:700;color:var(--muted)}
+.tl-item.hot .lbl{color:var(--s2-on)}
+.tl-item .dt{font-size:20px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.3}
+.tl-item .ds{font-size:14px;color:var(--muted);line-height:1.55}
+.tl-item.hot .ds{color:var(--on-navy-2)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
+.panel h3{font-size:18px;font-weight:700;margin-bottom:12px}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.list li{position:relative;padding-left:22px;font-size:15px;line-height:1.6}
+.list li::before{content:"";position:absolute;left:4px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--s2)}
+.list li b{font-weight:700}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:16px}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+.seg{display:flex;gap:8px;margin-bottom:16px}
+.seg button{flex:1;font:inherit;font-size:15px;font-weight:700;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--s2-lt);border-color:var(--s2);color:var(--s2-dk)}
+label.sl{display:flex;justify-content:space-between;font-size:14.5px;font-weight:500;margin-bottom:8px}
+label.sl b{font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--s2)}
+.meter{height:12px;border-radius:999px;background:var(--paper);border:1px solid var(--line);overflow:hidden;margin-top:14px;position:relative}
+.meter i{display:block;height:100%;background:var(--s1);border-radius:999px}
+.meter u{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink)}
+.res{display:flex;flex-direction:column;gap:10px}
+.state{font-size:15px;font-weight:700;padding:10px 14px;border-radius:10px}
+.st-ok{background:var(--s1-lt);color:var(--s1-dk)} .st-warn{background:var(--warn-lt);color:var(--warn-dk)} .st-bad{background:var(--s3-lt);color:var(--s3-dk)}
+.kv{display:flex;justify-content:space-between;font-size:15px;padding:8px 0;border-bottom:1px solid var(--line)}
+.kv b{font-variant-numeric:tabular-nums}
+
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.rules{grid-template-columns:1fr}}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.rule h3{font-size:17px;font-weight:700}
+.rule p{font-size:14.5px;color:var(--muted);line-height:1.65}
+.rule p b{color:var(--ink)}
+.quote{font-family:var(--serif);font-size:15px;background:var(--paper);border-radius:8px;padding:10px 12px;color:var(--ink)}
+
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 20px}
+details+details{margin-top:10px}
+summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:16px;display:flex;gap:12px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"Q";color:var(--s2);font-family:var(--serif);font-weight:700;flex:0 0 auto}
+details[open] summary{border-bottom:1px dashed var(--line)}
+details .a{padding:14px 0 18px 26px;font-size:15px;color:var(--muted);line-height:1.7}
+details .a b{color:var(--ink)}
+
+footer{background:var(--navy);color:var(--on-navy-2);font-size:13.5px;padding-block:32px 40px}
+footer b{color:var(--on-navy)}
+footer p+p{margin-top:6px}
+</style>
+</head>
+<body>
+<nav aria-label="바로가기">
+  <div class="wrap nav-in">
+    <div class="brand">부천형 공동교육과정 <b>계절학기(겨울)</b></div>
+    <div class="nav-links">
+      <a href="#courses">개설 강좌</a>
+      <a href="#apply">수강신청</a>
+      <a href="#credit">이수 기준</a>
+      <a href="#record">성적·학생부</a>
+      <a href="#faq">자주 묻는 질문</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="wordmark"><span>2026 부천형 공동교육과정</span><span class="wm-line" aria-hidden="true"></span><span>계절학기(겨울)</span></div>
+    <h1>학기가 끝나도,<br><span class="b">배움은 계속됩니다</span></h1>
+    <p class="tagline">우리 학교에 없는 과목을 겨울방학에 이웃 학교에서 듣습니다. 학기말 사전 수업으로 시작해 방학 집중 수업으로 마치고, 2학기 성적으로 기록됩니다.</p>
+    <div class="meta-row">
+      <span class="pill">2026. 12. 21. ~ 2027. 2.</span>
+      <span class="pill">개설 <b>14강좌</b> · 거점교 11교</span>
+      <span class="pill">관내 고등학교 1·2학년</span>
+      <span class="pill">수강신청 <b>11. 24.(화) ~ 11. 27.(금)</b></span>
+    </div>
+    <div class="path" role="list" aria-label="운영 흐름">
+      <div class="step" role="listitem" style="--c:var(--s2-on)">
+        <div class="dot">01</div>
+        <div class="scard"><div class="nm">학기말 사전 수업</div><div class="when">12. 21.(월) ~ 1. 11.(월)</div><div class="how">일과 후 저녁 수업 · 대부분 1일 2시간<br>(12. 25.·1. 1. 제외)</div></div>
+      </div>
+      <div class="step" role="listitem" style="--c:var(--s3-on)">
+        <div class="dot">02</div>
+        <div class="scard"><div class="nm">겨울방학 집중 수업</div><div class="when">1. 12.(화) ~ 2. 3.(수)</div><div class="how">오전 집중 운영 · 1일 3~6시간<br>강좌마다 기간이 다릅니다</div></div>
+      </div>
+      <div class="step" role="listitem" style="--c:var(--s1-on)">
+        <div class="dot">03</div>
+        <div class="scard"><div class="nm">이수·성적 처리</div><div class="when">2027. 1월 ~ 2월</div><div class="how">출석률로 이수 판정<br>2학기 학교생활기록부에 기록</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="courses">
+  <div class="wrap">
+    <div class="shead"><h2>개설 강좌</h2><span class="tag t-s2">14강좌</span></div>
+    <p class="sdesc">2학점은 32차시, 3학점은 48차시입니다. 강좌마다 학기말과 방학의 시간 배분이 다르니, 내 학교 일정과 겹치지 않는지 날짜를 꼭 확인하세요.</p>
+    <div class="notice" role="note"><span aria-hidden="true">●</span><span><b>개설 과목(안)입니다.</b> <b>신청서 미제출</b> 표시가 있는 3강좌는 거점교 조사 시트 기준이며, 거점교 신청서를 받은 뒤 확정합니다. 11. 11. 협의회 결과에 따라 강좌가 바뀔 수 있으며, 수강신청 결과에 따라 폐강될 수 있습니다. 확정 강좌는 11. 13.(금) 학교로 안내합니다.</span></div>
+    <div class="toolbar">
+      <div class="chips" role="group" aria-label="강좌 거르기" id="chips"></div>
+      <div class="view" role="group" aria-label="보기 방식">
+        <button type="button" id="v-card" aria-pressed="true">카드</button>
+        <button type="button" id="v-table" aria-pressed="false">표</button>
+      </div>
+    </div>
+    <div id="cards" class="grid"></div>
+    <div id="table" class="tbl-wrap" hidden></div>
+    <div id="empty" class="empty" hidden>조건에 맞는 강좌가 없습니다. 다른 조건을 골라 보세요.</div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <div class="shead"><h2>수강신청</h2><span class="tag t-s3">선착순</span></div>
+    <p class="sdesc">학년별 신청 링크로 학생이 직접 신청합니다. 링크는 소속 학교 공동교육과정 담당 선생님을 통해 안내됩니다.</p>
+    <div class="tl">
+      <div class="tl-item"><span class="lbl">안내</span><span class="dt">11. 13.(금)</span><span class="ds">확정 강좌와 신청 방법을 학교로 안내</span></div>
+      <div class="tl-item hot"><span class="lbl">수강신청</span><span class="dt">11. 24.(화) 17:00<br>~ 11. 27.(금) 17:00</span><span class="ds">학년별 링크, 개인 신청, 선착순</span></div>
+      <div class="tl-item"><span class="lbl">수강 확정</span><span class="dt">12. 3.(목)</span><span class="ds">확정 명단을 소속 학교로 안내</span></div>
+      <div class="tl-item"><span class="lbl">수업 시작</span><span class="dt">12. 21.(월)</span><span class="ds">학기말 사전 수업부터 시작<br>(강좌별로 다름)</span></div>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <h3>신청 전에 확인하세요</h3>
+        <ul class="list">
+          <li><b>우리 학교에 개설되지 않은 과목</b>만 신청할 수 있습니다. 3년간 교육과정 편제표를 기준으로 합니다.</li>
+          <li>공동교육과정과 온라인학교 과목을 합해 <b>학기당 최대 2과목</b>까지 이수할 수 있습니다. 이번 겨울 강좌는 2학기 과목으로 셉니다.</li>
+          <li>학기말 사전 수업과 방학 집중 수업 <b>전체 일정</b>에 참여할 수 있는지 먼저 확인하세요.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>수업 방식</h3>
+        <ul class="list">
+          <li><b>온라인 9강좌</b>는 실시간 쌍방향 화상 수업입니다. 카메라와 마이크가 있는 기기가 필요합니다. 정원은 20명 내외입니다.</li>
+          <li><b>오프라인 5강좌</b>는 거점교에 직접 가서 듣는 대면 수업입니다. 정원은 15명 내외이며, 수업 장소는 수강 확정 후 안내합니다.</li>
+          <li>프로젝트, 토의·토론, 실험·실습 등 학생 참여형 수업으로 운영합니다.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="credit">
+  <div class="wrap">
+    <div class="shead"><h2>이수 기준</h2><span class="tag t-s1">출석률</span></div>
+    <p class="sdesc">이번 겨울 강좌는 모두 선택 과목입니다. 선택 과목은 <b>과목출석률만으로</b> 이수를 판정합니다. 1학점당 수업 16회의 3분의 2 이상 출석하면 학점을 받습니다.</p>
+    <div class="panel">
+      <h3>출석 계산기</h3>
+      <div class="calc">
+        <div>
+          <div class="seg" role="group" aria-label="학점 선택">
+            <button type="button" id="c2" aria-pressed="false">2학점 · 32차시</button>
+            <button type="button" id="c3" aria-pressed="true">3학점 · 48차시</button>
+          </div>
+          <label class="sl" for="absent"><span>결석한 차시</span><b id="absentV">6차시</b></label>
+          <input type="range" id="absent" min="0" max="48" value="6">
+          <div class="meter" aria-hidden="true"><i id="bar"></i><u id="mark"></u></div>
+          <p style="font-size:13px;color:var(--muted);margin-top:8px">세로선이 이수에 필요한 최소 출석입니다. 슬라이더는 예시 값으로 시작합니다.</p>
+        </div>
+        <div class="res" aria-live="polite">
+          <div id="state" class="state st-ok"></div>
+          <div class="kv"><span>출석한 차시</span><b id="att"></b></div>
+          <div class="kv"><span>이수에 필요한 출석</span><b id="need"></b></div>
+          <div class="kv"><span>더 결석해도 되는 차시</span><b id="left"></b></div>
+        </div>
+      </div>
+    </div>
+    <div class="notice" role="note" style="margin:16px 0 0"><span aria-hidden="true">●</span><span>출석이 부족하면 <b>최소 성취수준 보장지도와 추가학습</b>으로 학점을 받을 기회가 있습니다. 이 보장지도·추가학습을 총 운영시수의 3분의 2 이상 참여하지 않으면 학교생활기록부 비고란에 <b>미이수</b>로 기록됩니다.</span></div>
+  </div>
+</section>
+
+<section id="record">
+  <div class="wrap">
+    <div class="shead"><h2>성적·학생부·출결</h2></div>
+    <p class="sdesc">수업과 평가는 거점교가 맡고, 성적과 세부능력 및 특기사항은 소속 학교로 보내져 2학기 기록에 반영됩니다.</p>
+    <div class="rules">
+      <div class="rule">
+        <h3>성적</h3>
+        <p>원점수, 성취도, 수강자수 등을 산출하지만 <b>석차등급란에는 '·'</b>을 입력합니다. 보건·교육의 이해·인간과 심리 같은 <b>교양 과목은 이수(P)</b>로 기록합니다.</p>
+      </div>
+      <div class="rule">
+        <h3>세부능력 및 특기사항</h3>
+        <p>거점교 선생님이 작성해 소속 학교로 보냅니다. 모든 학생의 세특은 아래 문구로 시작합니다.</p>
+        <p class="quote">공동교육과정(과목명)을 이수함.</p>
+      </div>
+      <div class="rule">
+        <h3>출결</h3>
+        <p>일과 후·방학 중 수업이라 <b>NEIS 출결에는 입력하지 않습니다.</b> 별도 출석부로 관리하며, 출결 현황은 소속 학교에 공문으로 알리고 이수 판정 자료로 씁니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="shead"><h2>자주 묻는 질문</h2></div>
+    <p class="sdesc">더 궁금한 점은 소속 학교 공동교육과정 담당 선생님께 문의하세요.</p>
+    <details><summary>몇 학년이 신청할 수 있나요?</summary><div class="a">부천 관내 고등학교 <b>1·2학년</b>(2022 개정 교육과정 적용)이 대상입니다. 강좌별 대상 학년은 11. 13.(금) 안내에서 다시 확인하세요.</div></details>
+    <details><summary>이 과목은 몇 학기 성적이 되나요?</summary><div class="a">겨울 계절학기 강좌는 <b>2026학년도 2학기</b>로 편성합니다. 그래서 2학기 공동교육과정·온라인학교 수강 과목과 합해 최대 2과목을 넘지 않아야 합니다.</div></details>
+    <details><summary>내신 등급에 들어가나요?</summary><div class="a">석차등급은 산출하지 않고 '·'으로 표시합니다. 성취도와 세부능력 및 특기사항은 기록됩니다. 교양 과목은 이수(P)로만 기록됩니다.</div></details>
+    <details><summary>몇 번까지 결석해도 되나요?</summary><div class="a">2학점(32차시)은 <b>22차시 이상</b>, 3학점(48차시)은 <b>32차시 이상</b> 출석해야 이수입니다. 결석은 2학점 10차시, 3학점 16차시까지입니다. 위의 출석 계산기로 확인할 수 있습니다.</div></details>
+    <details><summary>정원이 차면 어떻게 되나요?</summary><div class="a">선착순으로 마감합니다. 신청 인원이 너무 적은 강좌는 폐강될 수 있으며, 그 경우 소속 학교를 통해 알려 드립니다.</div></details>
+    <details><summary>오프라인 강좌는 어디로 가나요?</summary><div class="a">과목을 연 거점교로 직접 갑니다. 구체적인 교실과 준비물은 수강 확정 후 거점교가 안내합니다. 오가는 길의 안전에 유의해 주세요.</div></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>경기도부천교육지원청 중등교육지원과</b> · 2026 부천형 공동교육과정 계절학기(겨울)</p>
+    <p>강좌 정보 기준: 거점교 신청서(교육데이터포털 제출분) 11강좌, 거점교 조사 시트 3강좌(신청서 미제출), 2026. 11. 11. · 일정은 추진 상황에 따라 바뀔 수 있습니다.</p>
+  </div>
+</footer>
+
+<script>
+const COURSES=[
+ {s:"부천여자고",n:"보건",m:"온라인",c:2,sub:"교양",t:"홍현선(부천여자고)",pre:["12. 21. ~ 1. 7.","평일 17:20~19:10 (2시간 7회, 3시간 3회)",23],vac:["1. 11. ~ 1. 13.","월·화·수 09:00~12:00",9]},
+ {s:"부천여자고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"강호국(한백고)",pre:["12. 21. ~ 1. 7.","평일 17:30~19:20",24],vac:["1. 12. ~ 1. 13.","화·수 09:00~12:50",8]},
+ {s:"시온고",n:"보건",m:"온라인",c:2,sub:"교양",t:"최소정(고양국제고)",pre:["12. 21. ~ 1. 11.","평일 저녁 2시간",24,true],vac:["1. 12. ~ 1. 13.","월·화 09:00~12:50",8]},
+ {s:"정명고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"오상아(부명고)",pre:["12. 21. ~ 1. 11.","평일 17:30~19:20 12회, 09:00~12:50 2회",32],vac:null},
+ {s:"소사고",n:"고급 화학",m:"온라인",c:3,sub:"과학",t:"박재희(소사고)",pre:["12. 21. ~ 1. 11.","평일 18:00~19:50",28],vac:["1. 12. ~ 1. 19.","09:00~11:50 (1. 12.~15.), 09:00~12:50 (1. 18.~19.)",20]},
+ {s:"심원고",n:"국제 정치",m:"온라인",c:3,sub:"국제",t:"이창성(심원고)",pre:["12. 21. ~ 1. 7.","월~목 18:00~19:50",24],vac:["1. 18. ~ 1. 27.","평일 09:00~12:50",24]},
+ {s:"역곡고",n:"고급 생명과학",m:"온라인",c:3,sub:"과학",t:"정고은(산본고)",pre:["12. 22. ~ 1. 13.","평일 17:30~19:20 / 18:00~20:50",28],vac:["1. 14. ~ 1. 19.","평일 09:00~13:50",20]},
+ {s:"부천고",n:"교육의 이해",m:"온라인",c:2,sub:"교양",t:"김지연(부천고)",pend:1,pre:["12. 21. ~ 1. 7.","평일 17:30~20:10 (3시간 10회), 17:30~19:20 (2시간 1회)",32],vac:null},
+ {s:"부천북고",n:"인간과 심리",m:"온라인",c:2,sub:"교양",t:"박해린(부천북고)",pend:1,pre:["12. 21. ~","월 18:00~19:50, 수 17:00~18:50 (2시간 6회)",12],vac:["~ 1. 20.","평일 09:00~11:50 (3시간 6회, 2시간 1회)",20]},
+ {s:"부명고",n:"물리학 실험",m:"오프라인",c:3,sub:"과학",t:"김희정(외부 강사)",pre:null,vac:["1. 19. ~ 2. 3.","평일 09:00~12:50",48]},
+ {s:"부천고",n:"고급 대수",m:"오프라인",c:3,sub:"수학",t:"이진선(부천고)",pre:["12. 21. ~ 1. 4.","월·수 17:50~19:30 / 17:50~20:20",12],vac:["1. 12. ~ 1. 22.","평일 09:00~12:40",36]},
+ {s:"상원고",n:"인공지능 융합 프로젝트",m:"오프라인",c:3,sub:"정보",t:"손아영(심원고)",pre:["12. 21. ~ 1. 6.","월 17:30~20:20, 수 17:00~19:50",18],vac:["1. 11. ~ 1. 15.","평일 09:00~11:50, 13:00~15:50",30]},
+ {s:"부천고",n:"인간과 철학",m:"오프라인",c:2,sub:"교양",t:"차재원(상록중)",pend:1,tot:32,pre:["12. 21. ~","월·수·금 17:30~20:10",null],vac:["~ 1. 20.","월~수 09:00~11:40",null]},
+ {s:"중원고",n:"생명과학 실험",m:"오프라인",c:3,sub:"과학",t:"이호재(외부 강사)",pre:["1. 8. ~ 1. 11.","월·금 13:00~16:50",8],vac:["1. 12. ~ 1. 22.","평일 13:00~16:50 (5일), 13:00~17:50 (4일)",40]}
+];
+const FILTERS=[["all","전체",()=>true],["on","온라인",c=>c.m==="온라인"],["off","오프라인",c=>c.m==="오프라인"],["c2","2학점",c=>c.c===2],["c3","3학점",c=>c.c===3],["sci","과학·수학·정보",c=>["과학","수학","정보"].includes(c.sub)],["lib","교양·국제",c=>["교양","국제"].includes(c.sub)],["pend","신청서 미제출",c=>!!c.pend]];
+let cur="all", view="card";
+try{const v=localStorage.getItem("wv");if(v==="table")view="table";}catch(e){}
+const esc=s=>String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+const totOf=c=>c.tot||((c.pre&&c.pre[2]||0)+(c.vac&&c.vac[2]||0));
+const evalOf=c=>c.sub==="교양"?"이수(P)":"성취도";
+function row(k,cls,x){
+  if(!x) return `<div class="row"><span class="k ${cls}">${k}</span><span class="none">운영 없음</span></div>`;
+  return `<div class="row"><span class="k ${cls}">${k}</span><span><span class="d">${esc(x[0])}</span>${x[2]!=null?" · "+x[2]+"차시":""}${x[3]?'<span class="check">시간 확인 중</span>':''}<br><span class="t">${esc(x[1])}</span></span></div>`;
+}
+function render(){
+  const f=FILTERS.find(x=>x[0]===cur)[2], list=COURSES.filter(f);
+  document.getElementById("chips").innerHTML=FILTERS.map(([id,l,fn])=>`<button type="button" class="chip" data-f="${id}" aria-pressed="${id===cur}">${l}<span class="n">${COURSES.filter(fn).length}</span></button>`).join("");
+  document.getElementById("cards").innerHTML=list.map(c=>{
+    const tot=totOf(c);
+    return `<article class="course${c.pend?' pend':''}">
+      <div class="c-top"><div><div class="c-school">${esc(c.s)}</div><h3 class="c-name">${esc(c.n)}</h3></div><div class="c-credit"><b>${c.c}</b><span>학점</span></div></div>
+      <div class="badges"><span class="badge ${c.m==="온라인"?"b-on":"b-off"}">${c.m}</span><span class="badge">${esc(c.sub)}</span><span class="badge ${c.sub==="교양"?"b-p":""}">${evalOf(c)}</span>${c.pend?'<span class="badge b-pend">신청서 미제출</span>':''}</div>
+      <div class="sched">${row("학기말 사전","pre",c.pre)}${row("방학 집중","vac",c.vac)}</div>
+      <div class="c-foot"><span>강사 <b>${esc(c.t)}</b></span><span>총 <b>${tot}차시</b></span></div>
+    </article>`}).join("");
+  document.getElementById("table").innerHTML=`<table><thead><tr><th>거점교</th><th>과목</th><th>형태</th><th>학점</th><th>학기말 사전 수업</th><th>방학 집중 수업</th><th>강사</th><th>총 차시</th></tr></thead><tbody>${list.map(c=>`<tr><td>${esc(c.s)}</td><td><b>${esc(c.n)}</b>${c.pend?' <span class="badge b-pend">신청서 미제출</span>':''}</td><td>${c.m}</td><td class="num">${c.c}</td><td>${c.pre?esc(c.pre[0])+(c.pre[2]!=null?" ("+c.pre[2]+")":""):"–"}</td><td>${c.vac?esc(c.vac[0])+(c.vac[2]!=null?" ("+c.vac[2]+")":""):"–"}</td><td>${esc(c.t)}</td><td class="num">${totOf(c)}</td></tr>`).join("")}</tbody></table>`;
+  const none=!list.length;
+  document.getElementById("empty").hidden=!none;
+  document.getElementById("cards").hidden=none||view!=="card";
+  document.getElementById("table").hidden=none||view!=="table";
+  document.getElementById("v-card").setAttribute("aria-pressed",view==="card");
+  document.getElementById("v-table").setAttribute("aria-pressed",view==="table");
+}
+document.getElementById("chips").addEventListener("click",e=>{const b=e.target.closest("[data-f]");if(!b)return;cur=b.dataset.f;render();});
+["card","table"].forEach(v=>document.getElementById("v-"+v).addEventListener("click",()=>{view=v;try{localStorage.setItem("wv",v)}catch(e){}render();}));
+render();
+
+/* attendance calculator */
+let total=48;
+const sl=document.getElementById("absent");
+function calc(){
+  const need=Math.ceil(total*2/3), ab=Math.min(+sl.value,total); sl.max=total; if(+sl.value>total)sl.value=total;
+  const att=total-ab, left=(total-need)-ab;
+  document.getElementById("absentV").textContent=ab+"차시";
+  document.getElementById("att").textContent=att+" / "+total+"차시";
+  document.getElementById("need").textContent=need+"차시 이상";
+  document.getElementById("left").textContent=left>=0?left+"차시":"없음";
+  document.getElementById("bar").style.width=(att/total*100)+"%";
+  document.getElementById("mark").style.left=(need/total*100)+"%";
+  const st=document.getElementById("state");
+  if(left<0){st.className="state st-bad";st.textContent="출석 부족: 보장지도·추가학습 대상입니다";}
+  else if(left<=3){st.className="state st-warn";st.textContent="이수 가능, 여유가 "+left+"차시뿐입니다";}
+  else{st.className="state st-ok";st.textContent="이수 가능합니다";}
+  document.getElementById("c2").setAttribute("aria-pressed",total===32);
+  document.getElementById("c3").setAttribute("aria-pressed",total===48);
+}
+document.getElementById("c2").addEventListener("click",()=>{total=32;calc();});
+document.getElementById("c3").addEventListener("click",()=>{total=48;calc();});
+sl.addEventListener("input",calc);
+calc();
+</script>
+</body>
+</html>
