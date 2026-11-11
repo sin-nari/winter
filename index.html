@@ -347,7 +347,7 @@ footer p+p{margin-top:6px}
       <span class="pill">2026. 12. 21. ~ 2027. 2.</span>
       <span class="pill">개설 <b>14강좌</b> · 거점교 11교</span>
       <span class="pill">관내 고등학교 1·2학년</span>
-      <span class="pill">수강신청 <b>11. 24.(화) ~ 11. 27.(금)</b></span>
+      <span class="pill">수강신청 <b>11. 26.(목) ~ 11. 30.(월)</b></span>
     </div>
     <a class="cta" href="#calendar">내 수업 달력 보기 <span aria-hidden="true">→</span></a>
     <div class="path" role="list" aria-label="운영 흐름">
@@ -371,7 +371,7 @@ footer p+p{margin-top:6px}
 <section id="calendar" class="calsec">
   <div class="wrap">
     <div class="shead"><h2>내 수업 달력</h2><span class="tag t-s2">12. 21. ~ 2. 3.</span></div>
-    <ol class="howto"><li><b>듣고 싶은 강좌</b>를 누르세요. 겨울 계절학기는 <b>1명이 1강좌</b>만 들을 수 있어요.</li><li>달력에서 <b>수업하는 날과 시간</b>을 확인하세요.</li><li>우리 학교 시험·행사, 개학일과 겹치지 않는지 살펴보세요.</li></ol>
+    <ol class="howto"><li><b>강좌 1개</b>를 누르면 그 강좌의 일정이 달력에 표시돼요. 겨울 계절학기는 <b>1명이 1강좌</b>만 들을 수 있어요.</li><li>달력에서 <b>수업하는 날과 시간</b>을 확인하세요.</li><li>우리 학교 시험·행사, 개학일과 겹치지 않는지 살펴보세요.</li></ol>
     <div class="pick" id="pick"></div>
     <div class="picked" id="picked" aria-live="polite"></div>
     <div class="legend cal-legend" aria-hidden="true"><span><i class="lg band-pre"></i>학기말(일과 후)</span><span><i class="lg band-vac"></i>겨울방학</span><span><i class="lg hol"></i>휴일</span><span><i class="lg rng"></i>날짜 확정 전</span></div>
@@ -411,7 +411,7 @@ footer p+p{margin-top:6px}
     <p class="sdesc">학년별 신청 링크로 학생이 직접 신청합니다. 링크는 소속 학교 공동교육과정 담당 선생님을 통해 안내됩니다.</p>
     <div class="tl">
       <div class="tl-item"><span class="lbl">안내</span><span class="dt">11. 13.(금)</span><span class="ds">확정 강좌와 신청 방법을 학교로 안내</span></div>
-      <div class="tl-item hot"><span class="lbl">수강신청</span><span class="dt">11. 24.(화) 17:00<br>~ 11. 27.(금) 17:00</span><span class="ds">학년별 링크, 개인 신청, 선착순</span></div>
+      <div class="tl-item hot"><span class="lbl">수강신청</span><span class="dt">11. 26.(목) 17:00<br>~ 11. 30.(월) 17:00</span><span class="ds">학년별 링크, 개인 신청, 선착순</span></div>
       <div class="tl-item"><span class="lbl">수강 확정</span><span class="dt">12. 3.(목)</span><span class="ds">확정 명단을 소속 학교로 안내</span></div>
       <div class="tl-item"><span class="lbl">수업 시작</span><span class="dt">12. 21.(월)</span><span class="ds">학기말 사전 수업부터 시작<br>(강좌별로 다름)</span></div>
     </div>
@@ -587,6 +587,7 @@ render();
   const tclean=t=>String(t).replace(/\(\d+H\)/g,"").replace(/-/g,"~").replace(/ \/ /g," · ");
   let sel=[];
   try{const v=JSON.parse(localStorage.getItem("wcal")||"[]"); if(Array.isArray(v)) sel=v.filter(k=>CAL[k]).slice(0,1);}catch(e){}
+  if(!sel.length){ const f=COURSES.filter(c=>c.m==="온라인"&&CAL[keyOf(c)].days&&!c.pend).sort((a,b)=>a.c-b.c||a.n.localeCompare(b.n,"ko")||a.s.localeCompare(b.s,"ko"))[0]; sel=[keyOf(f)]; }
   const save=()=>{try{localStorage.setItem("wcal",JSON.stringify(sel))}catch(e){}};
   function grp(m){ return COURSES.filter(c=>c.m===m).sort((a,b)=>a.c-b.c||a.n.localeCompare(b.n,"ko")||a.s.localeCompare(b.s,"ko")); }
   function pickHtml(){
@@ -638,7 +639,7 @@ render();
   }
   const root=document.getElementById("calendar");
   root.addEventListener("click",e=>{
-    const b=e.target.closest(".pb"); if(b){const k=b.dataset.k; sel=sel[0]===k?[]:[k]; save(); draw(); return;}
+    const b=e.target.closest(".pb"); if(b){sel=[b.dataset.k]; save(); draw(); return;}
     const c=e.target.closest("[data-d]"); if(c) info(c.dataset.d);
   });
   window.showCal=k=>{ sel=[k]; save(); draw(); root.scrollIntoView({behavior:"smooth"}); };
