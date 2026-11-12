@@ -122,6 +122,8 @@ h2{font-size:clamp(23px,3.4vw,30px);font-weight:700;letter-spacing:-.02em}
 .b-off{background:var(--s3-lt);color:var(--s3-dk);border-color:transparent}
 .b-p{background:var(--s1-lt);color:var(--s1-dk);border-color:transparent}
 .b-pend{background:var(--warn-lt);color:var(--warn-dk);border-color:var(--warn-dk);border-style:dashed}
+.b-g{background:var(--pick);color:#fff;border-color:var(--pick);font-weight:700}
+td.grd{white-space:nowrap;font-weight:700}
 .course.pend{border-style:dashed;border-color:var(--warn-dk)}
 .sched{display:flex;flex-direction:column;gap:8px}
 .row{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.55;padding-top:8px;border-top:1px dashed var(--line)}
@@ -387,7 +389,7 @@ footer p+p{margin-top:6px}
     <p class="sdesc">개설 강좌 전체와 운영 기간입니다. 막대는 12. 21.부터 2. 3.까지의 날짜를 같은 눈금으로 그렸습니다.</p>
     <div class="sum" id="sum"></div>
     <div class="legend" aria-hidden="true"><span><i class="lg pre"></i>학기말 사전 수업</span><span><i class="lg vac"></i>방학 집중 수업</span><span><i class="lg mix"></i>기간만 확인(배분 미정)</span><span><i class="lg hol"></i>12. 25.·1. 1.</span></div>
-    <div class="tbl-wrap"><table class="glance"><thead><tr><th>거점교</th><th>과목</th><th>형태</th><th class="num">학점</th><th>교과정보</th><th class="num">총 차시</th><th>강사</th><th class="gcol"><div class="axis" id="axis"></div></th></tr></thead><tbody id="gbody"></tbody></table></div>
+    <div class="tbl-wrap"><table class="glance"><thead><tr><th>거점교</th><th>과목</th><th>형태</th><th class="num">학점</th><th>대상</th><th>교과정보</th><th class="num">총 차시</th><th>강사</th><th class="gcol"><div class="axis" id="axis"></div></th></tr></thead><tbody id="gbody"></tbody></table></div>
     <p class="gnote">표가 화면보다 넓으면 옆으로 밀어서 보세요. 교과정보는 교과(군) · 계열 · 선택 과목 유형 · 성취도 표기 순입니다. 계열과 과목 소개는 2027학년도 1학기 부천 공동교육과정 안내(정명고) 자료를 따랐습니다.</p>
   </div>
 </section>
@@ -421,6 +423,7 @@ footer p+p{margin-top:6px}
         <ul class="list">
           <li><b>우리 학교에 개설되지 않은 과목</b>만 신청할 수 있습니다. 3년간 교육과정 편제표를 기준으로 합니다.</li>
           <li>겨울 계절학기는 <b>1명이 1강좌</b>만 신청할 수 있습니다.</li>
+          <li><b>대상 학년</b>을 확인하세요. 대부분 <b>2학년</b> 대상이며, 부천여자고 교육의 이해는 <b>1·2학년</b> 신청 가능합니다.</li>
           <li>이번 겨울 강좌는 2학기 과목으로 셉니다. 2학기 공동교육과정·온라인학교 과목과 합해 <b>학기당 최대 2과목</b>을 넘지 않아야 합니다.</li>
           <li>학기말 사전 수업과 방학 집중 수업 <b>전체 일정</b>에 참여할 수 있는지 먼저 확인하세요.</li>
         </ul>
@@ -512,24 +515,24 @@ footer p+p{margin-top:6px}
 
 <script>
 const COURSES=[
- {R:[[0,17,"pre"],[21,23,"vac"]],s:"부천여자고",n:"보건",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"홍현선(부천여자고)",pre:["12. 21. ~ 1. 7.","평일 17:20~19:10 (2시간 7회, 3시간 3회)",23],vac:["1. 11. ~ 1. 13.","월·화·수 09:00~12:00",9]},
- {R:[[0,17,"pre"],[22,23,"vac"]],s:"부천여자고",n:"교육의 이해",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"강호국(한백고)",pre:["12. 21. ~ 1. 7.","평일 17:30~19:20",24],vac:["1. 12. ~ 1. 13.","화·수 09:00~12:50",8]},
- {R:[[0,21,"pre"],[22,23,"vac"]],s:"시온고",n:"보건",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"최소정(고양국제고)",pre:["12. 21. ~ 1. 11.","평일 저녁 2시간",24,true],vac:["1. 12. ~ 1. 13.","월·화 09:00~12:50",8]},
- {R:[[0,21,"pre"]],s:"정명고",n:"교육의 이해",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"오상아(부명고)",pre:["12. 21. ~ 1. 11.","평일 17:30~19:20 12회, 09:00~12:50 2회",32],vac:null},
- {R:[[0,21,"pre"],[22,29,"vac"]],s:"소사고",n:"고급 화학",m:"온라인",c:3,typ:"진로선택",sub:"과학",t:"박재희(소사고)",pre:["12. 21. ~ 1. 11.","평일 18:00~19:50",28],vac:["1. 12. ~ 1. 19.","09:00~11:50 (1. 12.~15.), 09:00~12:50 (1. 18.~19.)",20]},
- {R:[[0,17,"pre"],[28,37,"vac"]],s:"심원고",n:"국제 정치",m:"온라인",c:3,typ:"진로선택",sub:"외국어·국제",t:"이창성(심원고)",pre:["12. 21. ~ 1. 7.","월~목 18:00~19:50",24],vac:["1. 18. ~ 1. 27.","평일 09:00~12:50",24]},
- {R:[[1,18,"pre"],[22,32,"vac"]],s:"역곡고",n:"고급 생명과학",m:"온라인",c:3,typ:"진로선택",sub:"과학",t:"정고은(산본고)",pre:["12. 22. ~ 1. 8.","평일 18:00~20:50 / 17:30~20:20 (3시간 7회)",21],vac:["1. 12. ~ 1. 22.","1. 12.~13. 저녁 3·4시간, 1. 14.~22. 09:00~12:50 (4시간 5회)",27]},
- {R:[[0,16,"pre"]],s:"부천고",n:"교육의 이해",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"김지연(부천고)",pre:["12. 21. ~ 1. 6.","월~목 17:30~20:10 (3시간 10회), 1. 6. 17:30~19:20 (2시간)",32],vac:null},
- {R:[[0,30,"mix"]],s:"부천북고",n:"인간과 심리",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"박해린(부천북고)",pre:["12. 21. ~","월 18:00~19:50, 수 17:00~18:50 (2시간 6회)",12],vac:["~ 1. 20.","평일 09:00~11:50 (3시간 6회, 2시간 1회)",20]},
- {R:[[29,44,"vac"]],s:"부명고",n:"물리학 실험",m:"오프라인",c:3,typ:"융합선택",sub:"과학",t:"김희정(외부 강사)",pre:null,vac:["1. 19. ~ 2. 3.","평일 09:00~12:50",48]},
- {R:[[0,14,"pre"],[22,32,"vac"]],s:"부천고",n:"고급 대수",m:"오프라인",c:3,typ:"진로선택",sub:"수학",t:"이진선(부천고)",pre:["12. 21. ~ 1. 4.","월·수 17:50~19:30 / 17:50~20:20",12],vac:["1. 12. ~ 1. 22.","평일 09:00~12:40",36]},
- {R:[[0,16,"pre"],[21,25,"vac"]],s:"상원고",n:"인공지능 융합 프로젝트",m:"오프라인",c:3,typ:"융합선택",sub:"정보",t:"손아영(심원고)",pre:["12. 21. ~ 1. 6.","월 17:30~20:20, 수 17:00~19:50",18],vac:["1. 11. ~ 1. 15.","평일 09:00~11:50, 13:00~15:50",30]},
- {R:[[0,21,"pre"],[28,30,"vac"]],s:"부천고",n:"인간과 철학",m:"오프라인",c:2,typ:"진로선택",sub:"교양",t:"차재원(상록중)",pre:["12. 21. ~ 1. 11.","월·수 17:30~20:10, 1. 8.(금) 포함 (3시간 8회)",24],vac:["1. 18. ~ 1. 20.","월~수 09:00~11:40 (3시간 2회), 09:00~10:40 (2시간 1회)",8]},
- {R:[[18,21,"pre"],[22,32,"vac"]],s:"중원고",n:"생명과학 실험",m:"오프라인",c:3,typ:"진로선택",sub:"과학",t:"이호재(외부 강사)",pre:["1. 8. ~ 1. 11.","월·금 13:00~16:50",8],vac:["1. 12. ~ 1. 22.","평일 13:00~16:50 (5일), 13:00~17:50 (4일)",40]}
+ {R:[[0,17,"pre"],[21,23,"vac"]],g:"2학년",s:"부천여자고",n:"보건",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"홍현선(부천여자고)",pre:["12. 21. ~ 1. 7.","평일 17:20~19:10 (2시간 7회, 3시간 3회)",23],vac:["1. 11. ~ 1. 13.","월·화·수 09:00~12:00",9]},
+ {R:[[0,17,"pre"],[22,23,"vac"]],g:"1·2학년",s:"부천여자고",n:"교육의 이해",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"강호국(한백고)",pre:["12. 21. ~ 1. 7.","평일 17:30~19:20",24],vac:["1. 12. ~ 1. 13.","화·수 09:00~12:50",8]},
+ {R:[[0,21,"pre"],[22,23,"vac"]],g:"2학년",s:"시온고",n:"보건",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"최소정(고양국제고)",pre:["12. 21. ~ 1. 11.","평일 저녁 2시간",24,true],vac:["1. 12. ~ 1. 13.","월·화 09:00~12:50",8]},
+ {R:[[0,21,"pre"]],g:"2학년",s:"정명고",n:"교육의 이해",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"오상아(부명고)",pre:["12. 21. ~ 1. 11.","평일 17:30~19:20 12회, 09:00~12:50 2회",32],vac:null},
+ {R:[[0,21,"pre"],[22,29,"vac"]],g:"2학년",s:"소사고",n:"고급 화학",m:"온라인",c:3,typ:"진로선택",sub:"과학",t:"박재희(소사고)",pre:["12. 21. ~ 1. 11.","평일 18:00~19:50",28],vac:["1. 12. ~ 1. 19.","09:00~11:50 (1. 12.~15.), 09:00~12:50 (1. 18.~19.)",20]},
+ {R:[[0,17,"pre"],[28,37,"vac"]],g:"2학년",s:"심원고",n:"국제 정치",m:"온라인",c:3,typ:"진로선택",sub:"외국어·국제",t:"이창성(심원고)",pre:["12. 21. ~ 1. 7.","월~목 18:00~19:50",24],vac:["1. 18. ~ 1. 27.","평일 09:00~12:50",24]},
+ {R:[[1,18,"pre"],[22,32,"vac"]],g:"2학년",s:"역곡고",n:"고급 생명과학",m:"온라인",c:3,typ:"진로선택",sub:"과학",t:"정고은(산본고)",pre:["12. 22. ~ 1. 8.","평일 18:00~20:50 / 17:30~20:20 (3시간 7회)",21],vac:["1. 12. ~ 1. 22.","1. 12.~13. 저녁 3·4시간, 1. 14.~22. 09:00~12:50 (4시간 5회)",27]},
+ {R:[[0,16,"pre"]],g:"2학년",s:"부천고",n:"교육의 이해",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"김지연(부천고)",pre:["12. 21. ~ 1. 6.","월~목 17:30~20:10 (3시간 10회), 1. 6. 17:30~19:20 (2시간)",32],vac:null},
+ {R:[[0,30,"mix"]],g:"2학년",s:"부천북고",n:"인간과 심리",m:"온라인",c:2,typ:"진로선택",sub:"교양",t:"박해린(부천북고)",pre:["12. 21. ~","월 18:00~19:50, 수 17:00~18:50 (2시간 6회)",12],vac:["~ 1. 20.","평일 09:00~11:50 (3시간 6회, 2시간 1회)",20]},
+ {R:[[29,44,"vac"]],g:"2학년",s:"부명고",n:"물리학 실험",m:"오프라인",c:3,typ:"융합선택",sub:"과학",t:"김희정(외부 강사)",pre:null,vac:["1. 19. ~ 2. 3.","평일 09:00~12:50",48]},
+ {R:[[0,14,"pre"],[22,32,"vac"]],g:"2학년",s:"부천고",n:"고급 대수",m:"오프라인",c:3,typ:"진로선택",sub:"수학",t:"이진선(부천고)",pre:["12. 21. ~ 1. 4.","월·수 17:50~19:30 / 17:50~20:20",12],vac:["1. 12. ~ 1. 22.","평일 09:00~12:40",36]},
+ {R:[[0,16,"pre"],[21,25,"vac"]],g:"2학년",s:"상원고",n:"인공지능 융합 프로젝트",m:"오프라인",c:3,typ:"융합선택",sub:"정보",t:"손아영(심원고)",pre:["12. 21. ~ 1. 6.","월 17:30~20:20, 수 17:00~19:50",18],vac:["1. 11. ~ 1. 15.","평일 09:00~11:50, 13:00~15:50",30]},
+ {R:[[0,21,"pre"],[28,30,"vac"]],g:"2학년",s:"부천고",n:"인간과 철학",m:"오프라인",c:2,typ:"진로선택",sub:"교양",t:"차재원(상록중)",pre:["12. 21. ~ 1. 11.","월·수 17:30~20:10, 1. 8.(금) 포함 (3시간 8회)",24],vac:["1. 18. ~ 1. 20.","월~수 09:00~11:40 (3시간 2회), 09:00~10:40 (2시간 1회)",8]},
+ {R:[[18,21,"pre"],[22,32,"vac"]],g:"2학년",s:"중원고",n:"생명과학 실험",m:"오프라인",c:3,typ:"진로선택",sub:"과학",t:"이호재(외부 강사)",pre:["1. 8. ~ 1. 11.","월·금 13:00~16:50",8],vac:["1. 12. ~ 1. 22.","평일 13:00~16:50 (5일), 13:00~17:50 (4일)",40]}
 ];
 const INFO={"보건": {"cat": "보건·의료", "nat": "<보건>은 학생들이 건강역량을 함양하여 생활 속에서 건강을 실천하며 건강하고 행복한 시민으로 성장하는 데 필요한 자질을 갖추도록 설계한 교양 교과의 진로 선택 과목이다.", "feat": "건강 증진과 질병 예방(다차원적 건강 개념, 건강지표와 건강 평가), 정서와 정신건강(스트레스 관리, 약물 오남용 예방), 성과 건강(생애주기별 성 건강, 성인지 감수성), 건강 안전과 응급처치(심폐소생술, 응급처치체계), 건강 자원과 건강문화(디지털 헬스케어, 보건의료제도)를 다룬다.", "ev": "교양 교과군 (P/이수 표기, 석차등급은 '·' 표기)"}, "인간과 심리": {"cat": "교육·심리·인문", "nat": "<인간과 심리> 과목은 심리학을 이해하고 실생활 문제 해결에 응용할 수 있도록 함으로써, 개인의 건강한 발달과 적응을 도모할 뿐만 아니라 민주시민으로서 필요한 주도성, 의사소통 능력, 창의적 문제 해결력, 개방적이고 포용적인 태도를 기르기 위한 교양 교과의 진로 선택 과목이다.", "feat": "마음의 과학적 탐구(과학으로서의 심리학, 심리학 연구 방법과 연구 윤리), 자기 이해(행동의 생물학적 기초, 성격과 동기, 인지와 정서 조절), 타인 이해(사회 인지, 집단과 사회적 영향, 사회적 관계), 삶과 적응(적응과 부적응, 스트레스 대처, 행복의 다면적 의미와 증진 활동)을 심층 학습한다.", "ev": "교양 교과군 (P/이수 표기, 석차등급은 '·' 표기)"}, "물리학 실험": {"cat": "자연과학·공학", "nat": "<물리학 실험>은 역학, 전자기, 광학, 현대 물리와 관련된 다양한 주제의 실험을 설계하고 수행하여 물리 현상에 대한 이해를 심화하고 실생활에 응용할 수 있는 과학적 소양과 창의성을 함양하기 위한 과학 계열 융합 선택 과목이다.", "feat": "물리 실험의 기초(측정 오차와 유효숫자, 컴퓨터 센서 활용), 역학(마찰력, 진자 운동, 운동량 보존, 역학적 에너지 보존), 전자기학(휘트스톤 브리지, 전자기 유도, RLC 회로), 광학(빛의 간섭과 회절, 굴절과 전반사, 편광), 현대 물리(광전효과, 전자의 비전하 측정, 에너지 준위) 등 첨단 MBL 장비를 활용한 정량 실험을 수행한다.", "ev": "보통교과 (5단계 성취도 표기, 원점수/과목평균 병기, 석차등급은 '·' 표기)"}, "교육의 이해": {"cat": "교육·심리·인문", "nat": "<교육의 이해> 과목은 인간 활동 및 사회 제도 차원에서 이루어지는 교육에 대한 이해와 실천에 도움을 줌으로써 학생들이 당당한 교육의 주체로서 행복한 삶을 살아가는 데 필요한 역량을 함양하고자 하는 교양 교과의 진로 선택 과목이다.", "feat": "교육의 의미와 중요성(교육적 존재로서의 인간, 평생학습 역량), 교육 활동(학습과 교수의 원리 및 방법론), 교육 제도(교육 제도의 역사적 변천, 사회적 기능, 현대 교육 문제), 미래 교육(디지털·AI 소양 함양, 미래 학습 환경 변화)을 체계적으로 다룬다.", "ev": "교양 교과군 (P/이수 표기, 석차등급은 '·' 표기)"}, "고급 화학": {"cat": "자연과학·공학", "nat": "<고급 화학>은 21세기를 살아가는 데 필요한 핵심역량과 물질 현상을 과학적이고 창의적으로 분석하고 예측할 수 있는 화학적 소양을 함양하는 과학 계열 진로 선택 과목이다. 물질 탐구 과정과 지식에 대한 통합적 이해를 바탕으로 학생들이 화학에 대한 호기심과 흥미를 갖고 과학적 탐구 능력과 태도를 함양하여 개인과 사회의 문제를 과학적이고 창의적으로 해결하는 전문가로서의 역량 신장을 목표로 한다.", "feat": "원자 오비탈과 분자 구조, 기체 분자 운동론과 상평형, 열역학(엔탈피, 엔트로피, 깁스 자유 에너지), 화학 반응 속도론, 화학 평형과 산·염기 평형의 정량적 분석 등 화학 전공 심화 이론을 학습한다.", "ev": "보통교과 (5단계 성취도 표기, 원점수/과목평균 병기, 석차등급은 '·' 표기)"}, "인공지능 융합 프로젝트": {"cat": "자연과학·공학", "nat": "<인공지능 융합 프로젝트>는 인공지능과 다양한 학문 및 산업 분야를 융합하여 실생활 및 사회의 복잡한 문제를 정의하고, 데이터 기반 인공지능 모델링과 프로그래밍을 통해 창의적인 융합 산출물을 기획·설계·구현하는 정보 교과의 융합 선택 과목이다.", "feat": "문제 발견과 주제 선정, 데이터 수집·전처리 및 탐색적 분석, 기계학습·딥러닝 알고리즘 적용, 학문 간 융합 프로토타입 구현, 프로젝트 성능 평가 및 인공지능 윤리 성찰을 팀 프로젝트 중심으로 수행한다.", "ev": "보통교과 (5단계 성취도 표기, 원점수/과목평균 병기, 석차등급은 '·' 표기)"}, "고급 대수": {"cat": "자연과학·공학", "nat": "<고급 대수>는 수학의 여러 분야에서 대수적 개념과 방법을 어떻게 사용하는지, 인공지능, 기계공학, 전자공학 등 다양한 영역에서 행렬 및 벡터가 어떻게 사용되는지 이해하는 데 도움이 되며 대수의 심화된 내용과 추론 방식을 이해하고 탐구하는 과학 계열 진로 선택 과목이다.", "feat": "벡터공간(n차원 벡터공간, 기저벡터, 벡터의 내적과 정사영), 행렬과 선형변환(연립일차방정식과 가우스 소거법, 선형변환의 행렬 표현), 행렬의 대각화(고윳값과 고유벡터, 대각화의 성질과 공학적 활용) 등 대학 수학 및 인공지능 기초 수학을 체계적으로 다룬다.", "ev": "보통교과 (5단계 성취도 표기, 원점수/과목평균 병기, 석차등급은 '·' 표기)"}, "고급 생명과학": {"cat": "자연과학·공학", "nat": "<고급 생명과학>은 과학계열 고등학교 학생이나 일반계 고등학교에서 과학 과목 중점으로 교육과정을 이수하는 학생들이 심화된 수준의 생명과학의 학문적 체계와 내용을 학습하기 위한 과학 계열 진로 선택 과목이다. ‘고급 생명과학’은 생물의 구조와 에너지, 생물의 조절과 방어, 생명의 연속성, 생명공학기술과 미래 4개의 영역으로 구성된다.", "feat": "세포 수준 에너지 대사(광인산화, 캘빈회로, 전자전달계), 신경계 전달과 면역 반응 기전, 분자유전학(DNA 복제·수선, 전사인자와 오페론 설), 유전자 재조합 및 최신 생명공학 기술의 전망을 학습한다.", "ev": "보통교과 (5단계 성취도 표기, 원점수/과목평균 병기, 석차등급은 '·' 표기)"}, "국제 정치": {"cat": "사회·국제", "nat": "<국제 정치>는 외국어·국제 계열의 진로 선택 과목으로 일반사회 영역에서 국제 관계의 협력과 경쟁 및 갈등을 이해하고, 급변하는 국제 정치 변화에 능동적으로 대처하며 세계 평화에 기여할 수 있는 능력을 키우기 위한 과목이다.", "feat": "국제 정치 체제의 형성과 이론(현실주의, 자유주의, 구성주의), 국제 분쟁의 원인과 외교적 해결, 국제법과 국제기구의 역할, 한반도를 둘러싼 국제 정세와 통일 외교 과제를 다룬다.", "ev": "보통교과 (5단계 성취도 표기, 원점수/과목평균 병기, 석차등급은 '·' 표기)"}, "생명과학 실험": {"cat": "자연과학·공학", "nat": "<생명과학 실험>은 과학계열 고등학교 학생이나 일반계 고등학교에서 과학 과목 중점으로 교육과정을 이수하는 학생들이 심화된 수준의 생명과학의 학문적 체계와 내용을 탐구하기 위한 과학 계열 선택 과목이다.", "feat": "현미경 표본 제작, 삼투와 수분퍼텐셜, 효소 반응 속도 측정, 세포분열과 염색체 관찰, 플라스미드 DNA 추출, 제한효소 절단 및 겔 전기영동, 박테리아 형질전환 등 핵심 실험을 직접 수행한다.", "ev": "보통교과 (5단계 성취도 표기, 원점수/과목평균 병기, 석차등급은 '·' 표기)"}, "인간과 철학": {"cat": "교육·심리·인문", "nat": "", "feat": "", "ev": "교양 교과군 (P/이수 표기, 석차등급은 '·' 표기)"}};
 const catOf=c=>INFO[c.n]?INFO[c.n].cat:"";
-const FILTERS=[["all","전체",()=>true],["on","온라인",c=>c.m==="온라인"],["off","오프라인",c=>c.m==="오프라인"],["c2","2학점",c=>c.c===2],["c3","3학점",c=>c.c===3],["c-sci","자연과학·공학",c=>catOf(c)==="자연과학·공학"],["c-hum","교육·심리·인문",c=>catOf(c)==="교육·심리·인문"],["c-med","보건·의료",c=>catOf(c)==="보건·의료"],["c-soc","사회·국제",c=>catOf(c)==="사회·국제"]];
+const FILTERS=[["all","전체",()=>true],["on","온라인",c=>c.m==="온라인"],["off","오프라인",c=>c.m==="오프라인"],["c2","2학점",c=>c.c===2],["c3","3학점",c=>c.c===3],["g1","1학년 신청 가능",c=>c.g.includes("1")],["c-sci","자연과학·공학",c=>catOf(c)==="자연과학·공학"],["c-hum","교육·심리·인문",c=>catOf(c)==="교육·심리·인문"],["c-med","보건·의료",c=>catOf(c)==="보건·의료"],["c-soc","사회·국제",c=>catOf(c)==="사회·국제"]];
 let cur="all";
 const esc=s=>String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
 const totOf=c=>c.tot||((c.pre&&c.pre[2]||0)+(c.vac&&c.vac[2]||0));
@@ -546,7 +549,7 @@ function render(){
     const tot=totOf(c);
     return `<article class="course${c.pend?' pend':''}">
       <div class="c-top"><div><div class="c-school">${esc(c.s)} · ${esc(catOf(c))}</div><h3 class="c-name">${esc(c.n)}</h3></div><div class="c-credit"><b>${c.c}</b><span>학점</span></div></div>
-      <div class="badges"><span class="badge ${c.m==="온라인"?"b-on":"b-off"}">${c.m}</span><span class="badge">${esc(c.sub)}</span><span class="badge">${c.typ}</span><span class="badge ${c.sub==="교양"?"b-p":""}">${evalOf(c)}</span>${c.pend?'<span class="badge b-pend">신청서 미제출</span>':''}</div>
+      <div class="badges"><span class="badge b-g">대상 ${esc(c.g)}</span><span class="badge ${c.m==="온라인"?"b-on":"b-off"}">${c.m}</span><span class="badge">${esc(c.sub)}</span><span class="badge">${c.typ}</span><span class="badge ${c.sub==="교양"?"b-p":""}">${evalOf(c)}</span>${c.pend?'<span class="badge b-pend">신청서 미제출</span>':''}</div>
       <div class="sched">${row("학기말 사전","pre",c.pre)}${row("방학 집중","vac",c.vac)}</div>
       ${(()=>{const I=INFO[c.n]||{};return `<details class="about"><summary>과목 소개·평가</summary>${I.nat?`<p>${esc(I.nat)}</p>`:`<p class="muted">과목 소개는 확정 후 추가합니다.</p>`}${I.feat?`<p><b>주요 학습 내용</b> ${esc(I.feat)}</p>`:""}<p><b>평가 표기</b> ${esc(I.ev||"")}</p></details>`})()}
       <div class="c-foot"><span>강사 <b>${esc(c.t)}</b></span><span>총 <b>${tot}차시</b> · <button type="button" class="calbtn" data-k="${esc(c.s+"|"+c.n)}">달력 보기</button></span></div>
@@ -568,7 +571,7 @@ render();
   const bar=c=>`<div class="gbar" role="img" aria-label="${esc(c.n)} 운영 기간">${hol.map(d=>`<i class="hol" style="left:${pct(d)};width:${pct(1)}"></i>`).join("")}${c.R.map(([a,b,k])=>`<i class="seg ${k}" style="left:${pct(a)};width:${pct(b-a+1)}"></i>`).join("")}</div>`;
   const per=c=>{const p=c.pre&&c.pre[2]!=null?c.pre[2]:null, v=c.vac&&c.vac[2]!=null?c.vac[2]:null; return (p==null&&v==null)?"":`<span class="split">${p!=null?"사전 "+p:""}${p!=null&&v!=null?" · ":""}${v!=null?"방학 "+v:""}</span>`;};
   const order=[...COURSES].sort((a,b)=>(a.m===b.m?0:a.m==="온라인"?-1:1)||a.c-b.c||a.s.localeCompare(b.s,"ko"));
-  document.getElementById("gbody").innerHTML=order.map(c=>`<tr${c.pend?' class="pend"':''}><td class="sch">${esc(c.s)}</td><td><b>${esc(c.n)}</b>${c.pend?' <span class="badge b-pend">신청서 미제출</span>':''}</td><td><span class="badge ${c.m==="온라인"?"b-on":"b-off"}">${c.m}</span></td><td class="num">${c.c}</td><td class="info"><span>${esc(c.sub)}</span><span>${esc(catOf(c))}</span><span>${c.typ}</span><span class="${c.sub==="교양"?"ip":"ia"}">${evalOf(c)}</span></td><td class="num"><b>${totOf(c)}</b>${per(c)}</td><td class="tch">${esc(c.t)}</td><td class="gcol">${bar(c)}</td></tr>`).join("");
+  document.getElementById("gbody").innerHTML=order.map(c=>`<tr${c.pend?' class="pend"':''}><td class="sch">${esc(c.s)}</td><td><b>${esc(c.n)}</b>${c.pend?' <span class="badge b-pend">신청서 미제출</span>':''}</td><td><span class="badge ${c.m==="온라인"?"b-on":"b-off"}">${c.m}</span></td><td class="num">${c.c}</td><td class="grd">${esc(c.g)}</td><td class="info"><span>${esc(c.sub)}</span><span>${esc(catOf(c))}</span><span>${c.typ}</span><span class="${c.sub==="교양"?"ip":"ia"}">${evalOf(c)}</span></td><td class="num"><b>${totOf(c)}</b>${per(c)}</td><td class="tch">${esc(c.t)}</td><td class="gcol">${bar(c)}</td></tr>`).join("");
   const on=COURSES.filter(c=>c.m==="온라인").length, off=COURSES.length-on, schools=new Set(COURSES.map(c=>c.s)).size, pend=COURSES.filter(c=>c.pend).length;
   const c2=COURSES.filter(c=>c.c===2).length, c3=COURSES.length-c2;
   document.getElementById("sum").innerHTML=[["전체",COURSES.length+"강좌","거점교 "+schools+"교"],["형태","온라인 "+on+" · 오프라인 "+off,"정원 20명 · 15명 내외"],["학점","2학점 "+c2+" · 3학점 "+c3,"32차시 · 48차시"],["교과정보","진로 "+COURSES.filter(c=>c.typ==="진로선택").length+" · 융합 "+COURSES.filter(c=>c.typ==="융합선택").length,"교양 "+COURSES.filter(c=>c.sub==="교양").length+"과목은 P(이수)"]].map(([k,v,s])=>`<div class="sbox"><span class="k">${k}</span><b>${v}</b><span class="s">${s}</span></div>`).join("");
@@ -591,7 +594,7 @@ render();
   const save=()=>{try{localStorage.setItem("wcal",JSON.stringify(sel))}catch(e){}};
   function grp(m){ return COURSES.filter(c=>c.m===m).sort((a,b)=>a.c-b.c||a.n.localeCompare(b.n,"ko")||a.s.localeCompare(b.s,"ko")); }
   function pickHtml(){
-    return ["온라인","오프라인"].map(m=>`<div class="pgrp"><h3>${m} ${grp(m).length}강좌</h3><div class="pbtns">${grp(m).map(c=>{const k=keyOf(c),i=sel.indexOf(k);return `<button type="button" class="pb${c.pend?" pend":""}" data-k="${esc(k)}" aria-pressed="${i>=0}" style="--ca:var(--navy)"><b>${esc(c.n)}</b><span>${esc(c.s)} · ${c.c}학점${c.pend?" · 미제출":""}</span><i class="lt">✓</i></button>`}).join("")}</div></div>`).join("");
+    return ["온라인","오프라인"].map(m=>`<div class="pgrp"><h3>${m} ${grp(m).length}강좌</h3><div class="pbtns">${grp(m).map(c=>{const k=keyOf(c),i=sel.indexOf(k);return `<button type="button" class="pb${c.pend?" pend":""}" data-k="${esc(k)}" aria-pressed="${i>=0}" style="--ca:var(--navy)"><b>${esc(c.n)}</b><span>${esc(c.s)} · ${c.c}학점 · ${esc(c.g)}${c.pend?" · 미제출":""}</span><i class="lt">✓</i></button>`}).join("")}</div></div>`).join("");
   }
   function slots(s){
     return sel.map((k,i)=>{const c=CAL[k]; const d=(c.days||[]).find(x=>x[0]===s); if(d) return {i,k,t:d[1],h:d[2],rng:false};
@@ -607,8 +610,8 @@ render();
     // picked summary
     document.getElementById("picked").innerHTML= sel.length? sel.map((k,i)=>{const co=COURSES.find(c=>keyOf(c)===k),c=CAL[k],target=co.c===3?48:32;
       if(c.days){const tot=c.total||c.days.reduce((a,d)=>a+d[2],0),f=c.days[0][0],l=c.days[c.days.length-1][0];const fmt=x=>{const p=x.split("-");return (+p[1])+". "+(+p[2])+".";},fd=fmt(f),ld=fmt(l);
-        return `<div class="pc" style="--ca:${CA[i]}"><span class="t">${esc(co.n)} <span style="font-weight:500;color:var(--muted)">(${esc(co.s)}, ${co.m})</span></span><span class="m">${fd} ~ ${ld} · <b>${c.days.length}</b>회 · 합계 <b>${tot}</b>/${target}차시 <span class="${tot===target?"ok":"warn"}">${tot===target?"충족":"확인 필요"}</span></span></div>`;}
-      return `<div class="pc" style="--ca:${CA[i]}"><span class="t">${esc(co.n)} <span style="font-weight:500;color:var(--muted)">(${esc(co.s)}, ${co.m})</span></span><span class="m"><span class="warn">날짜별 일정 확정 전</span> · ${c.range.map(r=>esc(r[3])).join(" / ")}</span></div>`;}).join("")
+        return `<div class="pc" style="--ca:${CA[i]}"><span class="t">${esc(co.n)} <span style="font-weight:500;color:var(--muted)">(${esc(co.s)}, ${co.m}, ${esc(co.g)})</span></span><span class="m">${fd} ~ ${ld} · <b>${c.days.length}</b>회 · 합계 <b>${tot}</b>/${target}차시 <span class="${tot===target?"ok":"warn"}">${tot===target?"충족":"확인 필요"}</span></span></div>`;}
+      return `<div class="pc" style="--ca:${CA[i]}"><span class="t">${esc(co.n)} <span style="font-weight:500;color:var(--muted)">(${esc(co.s)}, ${co.m}, ${esc(co.g)})</span></span><span class="m"><span class="warn">날짜별 일정 확정 전</span> · ${c.range.map(r=>esc(r[3])).join(" / ")}</span></div>`;}).join("")
       : `<div class="pc none">강좌를 고르면 수업 날짜와 시간이 달력에 표시돼요. 고르기 전에는 날짜별로 수업하는 강좌 수가 보여요.</div>`;
     // grid
     let g='<div class="hd"></div>'+WD.map(w=>`<div class="hd">${w}</div>`).join(""), L="";
