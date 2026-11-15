@@ -399,7 +399,7 @@ footer p+p{margin-top:6px}
       </div>
       <div class="step" role="listitem" style="--c:var(--s1-on)">
         <div class="dot">03</div>
-        <div class="scard"><div class="nm">이수·성적 처리</div><div class="when">2027. 1월 ~ 2월</div><div class="how">출석률로 이수 판정<br>2학기 학교생활기록부에 기록</div></div>
+        <div class="scard"><div class="nm">추가학습·성적 처리</div><div class="when">2027. 1월 ~ 2월</div><div class="how">미이수 학생 추가학습 및 평가 완료<br>성적처리, 학교생활기록부 입력 및 NEIS 전송</div></div>
       </div>
     </div>
   </div>
@@ -488,29 +488,8 @@ footer p+p{margin-top:6px}
 
 <section id="credit">
   <div class="wrap">
-    <div class="shead"><h2>이수 기준</h2><span class="tag t-s1">출석률</span></div>
-    <div class="sdesc">공동교육과정으로 개설되는 모든 과목에 학점 이수 인정 기준 적용<br>‒ (공통 과목) 과목출석률과 학업성취율 동시 충족 시 이수 인정 ※ 1학점당 수업량(16회)의 2/3 이상 출석, 학업성취율 40% 이상<br>‒ (선택 과목) 과목출석률 기준만 적용 ※ 1학점당 수업량(16회)의 2/3 이상 출석<br><b>※ 이번 겨울 계절학기 14강좌는 모두 선택 과목입니다.</b></div>
-    <div class="panel">
-      <h3>출석 계산기</h3>
-      <div class="calc">
-        <div>
-          <div class="seg" role="group" aria-label="학점 선택">
-            <button type="button" id="c2" aria-pressed="false">2학점 · 32차시</button>
-            <button type="button" id="c3" aria-pressed="true">3학점 · 48차시</button>
-          </div>
-          <label class="sl" for="absent"><span>결석한 차시</span><b id="absentV">6차시</b></label>
-          <input type="range" id="absent" min="0" max="48" value="6">
-          <div class="meter" aria-hidden="true"><i id="bar"></i><u id="mark"></u></div>
-          <p style="font-size:13px;color:var(--muted);margin-top:8px">세로선이 이수에 필요한 최소 출석입니다. 슬라이더는 예시 값으로 시작합니다.</p>
-        </div>
-        <div class="res" aria-live="polite">
-          <div id="state" class="state st-ok"></div>
-          <div class="kv"><span>출석한 차시</span><b id="att"></b></div>
-          <div class="kv"><span>이수에 필요한 출석</span><b id="need"></b></div>
-          <div class="kv"><span>더 결석해도 되는 차시</span><b id="left"></b></div>
-        </div>
-      </div>
-    </div>
+    <div class="shead"><h2>이수 기준</h2></div>
+    <div class="sdesc">공동교육과정으로 개설되는 모든 과목에 학점 이수 인정 기준 적용<br>‒ (공통 과목) 과목출석률과 학업성취율 동시 충족 시 이수 인정 ※ 1학점당 수업량(16회)의 2/3 이상 출석, 학업성취율 40% 이상<br>‒ (선택 과목) 과목출석률 기준만 적용 ※ 1학점당 수업량(16회)의 2/3 이상 출석</div>
     <div class="notice" role="note" style="margin:16px 0 0"><span aria-hidden="true">●</span><span>과목 이수 기준을 충족하지 못해 미도달한 경우 <b>최소 성취수준 보장지도 및 추가학습</b>을 통해 학점 취득 기회 제공<br>공동교육과정을 포함해 과목 이수 기준 미도달 대상자가 최소 성취수준 보장지도 및 추가학습을 총 운영시수의 3분의 2 이상 미참여 시, 교과학습발달상황 양식 내 비고란에 <b>미이수</b> 기재됨</span></div>
   </div>
 </section>
@@ -531,7 +510,7 @@ footer p+p{margin-top:6px}
       </div>
       <div class="rule">
         <h3>출결</h3>
-        <p>일과 후·방학 중 수업이라 <b>NEIS 출결에는 입력하지 않습니다.</b> 별도 출석부로 관리하며, 출결 현황은 소속 학교에 공문으로 알리고 이수 판정 자료로 씁니다.</p>
+        <p>※ 학기 중 출결에 반영하지 않음<br>(일과 외) 출결 미반영, 학교 간 상황을 고려하여 나이스(NEIS)를 활용하지 않고 별도의 학생 출석부로 관리<br>※ 출결 현황은 학생 소속 학교에 공문으로 발송하되(출석부 별도 관리), 이수 여부 심의자료로 활용하며, NEIS 출결상황에는 입력하지 않음</p>
       </div>
     </div>
   </div>
@@ -540,11 +519,11 @@ footer p+p{margin-top:6px}
 <section id="faq">
   <div class="wrap">
     <div class="shead"><h2>자주 묻는 질문</h2></div>
-    <p class="sdesc">「2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교)」의 공동교육과정 운영 Q&amp;A 중 학생·학부모에게 필요한 내용을 옮겼습니다. 이수 기준과 학교생활기록부 기재는 이수 기준 완화 이후의 운영 계획 문구를 따랐습니다. 공동교육과정 전반은 <a href="https://more.goe.go.kr/hagjeomje/subList/30300002423" target="_blank" rel="noopener">경기고교학점제 지원센터 – 공동교육과정 안내</a>에서도 볼 수 있습니다. 더 궁금한 점은 소속 학교 공동교육과정 담당 선생님께 문의하세요.</p>
+    <p class="sdesc">「2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교)」의 공동교육과정 운영 Q&amp;A 중 학생·학부모에게 필요한 내용을 옮겼습니다. 이수 기준과 학교생활기록부 기재는 운영 계획 문구를 옮겼습니다. 공동교육과정 전반은 <a href="https://more.goe.go.kr/hagjeomje/subList/30300002423" target="_blank" rel="noopener">경기고교학점제 지원센터 – 공동교육과정 안내</a>에서도 볼 수 있습니다. 더 궁금한 점은 소속 학교 공동교육과정 담당 선생님께 문의하세요.</p>
     <details><summary>Q. 05 공동교육과정에서 한 학기에 몇 과목(학점)까지 수강할 수 있나요?</summary><div class="a">[2022 개정 교육과정(2026학년도 1, 2학년)] 한 학기에 최대 2개 과목을 수강할 수 있습니다. 학생에게 부담이 되지 않도록 과도한 수강은 지양하며, 세부 사항은 교육지원청마다 다를 수 있습니다.<span class="src">출처: 2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교) 231쪽</span></div></details>
     <details><summary>Q. 09 공동교육과정 참여 학생이 언제까지 수강을 취소할 수 있으며, 수강 취소 처리 절차는 어떻게 되나요?</summary><div class="a">수강취소기간은 1회 수업 종료 후부터 2회 수업 시작 전까지이며, 수강 취소 기간 이후에는 수강 취소가 불가능합니다. 수강취소 절차는 학생 소속학교의 공동교육과정 업무담당교사가 학생으로부터 취소원을 받아서 소속 교육지원청과 거점교에 공문으로 발송합니다.<span class="src">출처: 2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교) 232쪽</span></div></details>
-    <details><summary>Q. 26 중도 포기를 요청하는 학생이 있습니다. 어떻게 조치를 해야 하나요?</summary><div class="a">중도 포기는 불가합니다. 공동교육과정 수강 학생 확정 후에는 수강 대상자를 변경하지 않습니다.<br>이수 기준 미도달 시 처리는 Q.11과 Q.28을 참고하세요.<span class="src">출처: 2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교) 235쪽(이수 기준 관련 내용은 운영 계획 기준으로 대체)</span></div></details>
-    <details><summary>Q. 11 일과 외 실시하는 공동교육과정의 이수 처리 기준은 어떻게 되나요?</summary><div class="a">공동교육과정으로 개설되는 모든 과목에 학점 이수 인정 기준 적용<br>‒ (공통 과목) 과목출석률과 학업성취율 동시 충족 시 이수 인정 ※ 1학점당 수업량(16회)의 2/3 이상 출석, 학업성취율 40% 이상<br>‒ (선택 과목) 과목출석률 기준만 적용 ※ 1학점당 수업량(16회)의 2/3 이상 출석<br>· 과목 이수 기준을 충족하지 못해 미도달한 경우 최소 성취수준 보장지도 및 추가학습을 통해 학점 취득 기회 제공<span class="note">※ 이번 겨울 계절학기 14강좌는 모두 선택 과목입니다.</span><span class="src">출처: 2027학년도 공동교육과정 운영 계획(경기도부천교육지원청) – 출결·이수 기준 및 나이스 입력</span></div></details>
+    <details><summary>Q. 26 중도 포기를 요청하는 학생이 있습니다. 어떻게 조치를 해야 하나요?</summary><div class="a">중도 포기는 불가합니다. 공동교육과정 수강 학생 확정 후에는 수강 대상자를 변경하지 않습니다.<span class="src">출처: 2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교) 235쪽(일부)</span></div></details>
+    <details><summary>Q. 11 일과 외 실시하는 공동교육과정의 이수 처리 기준은 어떻게 되나요?</summary><div class="a">공동교육과정으로 개설되는 모든 과목에 학점 이수 인정 기준 적용<br>‒ (공통 과목) 과목출석률과 학업성취율 동시 충족 시 이수 인정 ※ 1학점당 수업량(16회)의 2/3 이상 출석, 학업성취율 40% 이상<br>‒ (선택 과목) 과목출석률 기준만 적용 ※ 1학점당 수업량(16회)의 2/3 이상 출석<br>· 과목 이수 기준을 충족하지 못해 미도달한 경우 최소 성취수준 보장지도 및 추가학습을 통해 학점 취득 기회 제공<span class="src">출처: 2027학년도 공동교육과정 운영 계획(경기도부천교육지원청) – 출결·이수 기준 및 나이스 입력</span></div></details>
     <details><summary>Q. 13 수강생이 학교 행사 참여로 공동교육과정 수업에 참석하지 못한다고 합니다. 이런 경우 학생의 출결 처리 절차는 어떻게 되나요?</summary><div class="a">참여교에서 사전에 거점교 및 중심거점교로 관련 증빙 서류가 포함된 공문을 발송한 경우에 한하여 출석 인정 결과로 처리할 수 있습니다.<span class="src">출처: 2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교) 233쪽</span></div></details>
     <details><summary>Q. 16 수강생 소속학교의 정기시험 기간 동안에 일과 외 공동교육과정 수업이 진행될 예정입니다. 이 기간 동안 학생이 수업에 참여하지 않아도 출석 인정이 되나요?</summary><div class="a">참여교에서 정기시험 기간 동안 출석 인정 처리 요청 공문을 사전에 거점교에 발송한 경우 출석인정이 됩니다. 단, 정기시험 기간 전에 정기시험 시험 준비로 인하여 수업에 참여하지 않은 경우는 수업에 출석하지 않은 것으로 처리됩니다.<br><b>[참고] 출석 인정 사유 예시</b><br>· 출석 인정 사유: 거점교 출결 인정에 따른 가족, 친인척 경조사 / 소속학교 교육과정에 편성된 행사활동에 참여한 경우 / 소속학교 정기시험 기간에 공동교육과정 수업이 진행되는 경우 / 법정 감염병에 의한 결석 / 학교장의 허가를 받은 교외체험학습 등<br>· 출석 인정 불가 사유: 출석 인정 증빙 서류를 공문으로 제출하지 않은 경우 / 소속학교의 정기시험 및 수행평가 대비 등<span class="src">출처: 2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교) 233쪽</span></div></details>
     <details><summary>Q. 15 출석으로 인정하기 위해서 수업에 불참한 수강생을 대상으로 추가 수업을 하거나 수업 자료를 별도로 제공할 수 있나요?</summary><div class="a">수업에 불참한 수강생을 대상으로 추가 수업을 하거나 수업 자료를 별도로 제공한다고 하더라도 출석으로 인정하지 않습니다. 다만, 학습 지원을 위해서 추가 수업을 하거나 수업 자료를 별도로 제공할 수 있습니다.<span class="src">출처: 2026 함께 만들어가는 학생중심 학교교육과정 도움 자료집(고등학교) 233쪽</span></div></details>
@@ -708,29 +687,6 @@ render();
   draw();
 })();
 
-/* attendance calculator */
-let total=48;
-const sl=document.getElementById("absent");
-function calc(){
-  const need=Math.ceil(total*2/3), ab=Math.min(+sl.value,total); sl.max=total; if(+sl.value>total)sl.value=total;
-  const att=total-ab, left=(total-need)-ab;
-  document.getElementById("absentV").textContent=ab+"차시";
-  document.getElementById("att").textContent=att+" / "+total+"차시";
-  document.getElementById("need").textContent=need+"차시 이상";
-  document.getElementById("left").textContent=left>=0?left+"차시":"없음";
-  document.getElementById("bar").style.width=(att/total*100)+"%";
-  document.getElementById("mark").style.left=(need/total*100)+"%";
-  const st=document.getElementById("state");
-  if(left<0){st.className="state st-bad";st.textContent="출석 부족: 보장지도·추가학습 대상입니다";}
-  else if(left<=3){st.className="state st-warn";st.textContent="이수 가능, 여유가 "+left+"차시뿐입니다";}
-  else{st.className="state st-ok";st.textContent="이수 가능합니다";}
-  document.getElementById("c2").setAttribute("aria-pressed",total===32);
-  document.getElementById("c3").setAttribute("aria-pressed",total===48);
-}
-document.getElementById("c2").addEventListener("click",()=>{total=32;calc();});
-document.getElementById("c3").addEventListener("click",()=>{total=48;calc();});
-sl.addEventListener("input",calc);
-calc();
 </script>
 <script>
 (function(){
