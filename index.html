@@ -38,7 +38,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:var(--navy)}
 .wrap{width:100%;max-width:1012px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3{text-wrap:balance;margin:0}
@@ -67,6 +67,12 @@ h1 .b{color:var(--s2-on)}
 .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .pill{border:1px solid var(--navy-line);border-radius:999px;padding:6px 15px;font-size:14px;color:var(--on-navy)}
 .pill b{color:var(--s2-on);font-weight:700}
+.apply-band{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;margin-top:20px;padding:14px 20px;max-width:680px;border:2px solid var(--s3-on);border-radius:14px;background:rgba(238,154,85,.14);color:var(--on-navy);text-decoration:none}
+.apply-band:hover{background:rgba(238,154,85,.24)}
+.ab-lbl{width:100%;font-size:13px;font-weight:800;color:var(--s3-on);letter-spacing:.03em}
+.ab-dt{font-size:clamp(18px,4.8vw,25px);font-weight:900;font-variant-numeric:tabular-nums;line-height:1.3}
+.ab-dt .nw{white-space:nowrap}
+.ab-go{margin-left:auto;font-size:14px;font-weight:700;color:var(--s3-on);white-space:nowrap}
 
 .path{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;position:relative}
 .path::before{content:"";position:absolute;left:8%;right:8%;top:23px;height:2px;background:linear-gradient(90deg,var(--s2-on),var(--s3-on),var(--s1-on));opacity:.55}
@@ -391,8 +397,8 @@ footer p+p{margin-top:6px}
       <span class="pill">2026. 12. 21. ~ 2027. 1. 28.</span>
       <span class="pill">개설 <b>14강좌</b> · 거점교 11교</span>
       <span class="pill">관내 고등학교 1·2학년</span>
-      <span class="pill">수강신청 <b>11. 27.(금) ~ 12. 1.(화)</b></span>
     </div>
+    <a class="apply-band" href="#apply"><span class="ab-lbl">수강신청 기간 · 선착순</span><span class="ab-dt"><span class="nw">11. 27.(금) 17:00</span> ~ <span class="nw">12. 1.(화) 17:00</span></span><span class="ab-go">신청 방법 보기 <span aria-hidden="true">→</span></span></a>
     <a class="cta" href="#calendar">내 수업 달력 보기 <span aria-hidden="true">→</span></a>
     <div class="path" role="list" aria-label="운영 흐름">
       <div class="step" role="listitem" style="--c:var(--s2-on)">
